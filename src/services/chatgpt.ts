@@ -1,5 +1,4 @@
 import { Configuration, OpenAIApi } from "openai";
-import { PlainObject } from "react-vega";
 
 const configuration = new Configuration({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
@@ -20,8 +19,8 @@ type TGraph =
   | "geoshape";
 
 const initialise = async (
-  data: PlainObject | unknown,
-  graphType: TGraph,
+  //   data: PlainObject | unknown,
+  //   graphType: TGraph,
   text: string
 ) => {
   if (!text) {
@@ -33,18 +32,51 @@ const initialise = async (
     messages: [
       {
         role: "system",
-        content:
-          "Based on a given data, graph type and text, you are going to parse the text and attempt to accurately represent the text by converting the data into a Vega-Lite schema. Return the JSON object without any additional comments/description",
+        content: `
+        Based on a given data, graph type and text, you are going to parse the text and attempt to accurately represent the text by converting the data into a Visual Query Language (VQL). Return the response in a valid JSON object.
+        
+        VQL is a custom query language defined in this model that allows us to specify highlighting in a 2D chart specified in Vega-Lite.
+
+        VQL schema consists of the following attributes:
+        1. 'highlight': represents an enum value 'visual element' | 'x-axis' | 'y-axis' | 'legend'
+        2. 'in': represents the layer indicated by an array of enum values. The array always contains the value 'data layer' as the first element. An additional element is then appended to the array based on a set of rule mappings. The set of rule mappings is defined as such for 'in' attribute.
+            2a. scatter = point
+            2b. histogram | bar = bar
+            2c. heatmap = rect
+            2d. line = line
+            2e. pie = arc
+        3. 'where': object of predicates represented by key(s) such as 'AND' or 'OR'. Each predicate contains an array of objects of which an object represents an condition. There are 5 different conditions available: 
+            3a. EQUAL
+            3b. NOT EQUAL
+            3c. BETWEEN
+            3d. MORE THAN
+            3e. LESS THAN
+        `,
       },
       {
         role: "user",
+        content: `Convert the following text into a VQL schema: "Based on the bar chart, from 2008 to 2012, Germany's growth ranged from 2% to 6%"`,
+      },
+      {
+        role: "assistant",
         content: `
-        Perform the conversion of text into a Vega-Lite schema based on the following:
-        
-        Data - ${JSON.stringify(data)}
-        Graph type - ${graphType}
-        Text - ${text}
-          `,
+        {
+            "VQL": {
+                "highlight": "visual element",
+                "in": ["data layer", "point"],
+                "where": {
+                    "AND": [
+                        {"percentage": {"BETWEEN": [2, 6]}},
+                        {"year": {"BETWEEN": [2008, 2012]}}
+                    ]
+                }
+            }
+        }
+        `,
+      },
+      {
+        role: "user",
+        content: `Convert the following text into a VQL schema: "${text}"`,
       },
     ],
   });
