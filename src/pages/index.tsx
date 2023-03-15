@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { PlainObject, VegaLite, VisualizationSpec } from "react-vega";
+import { VisualizationSpec } from "react-vega";
+import { PrettyPrintJson } from "../components";
 import { ChatGPTService } from "../services";
 
 const spec: VisualizationSpec = {
@@ -13,60 +14,72 @@ const spec: VisualizationSpec = {
   data: { name: "table" }, // note: vega-lite data attribute is a plain object instead of an array
 };
 
+const UTTERANCES = [
+  "Based on the bar chart, from 2000 to 2023, Singapore's growth ranged from 0% to 100%.",
+  "Based on the scatter plot, Indonesia's GDP is the largest.",
+  "Oh, see, the y-axis on the line chart, it represents the percentage growth of GDP.",
+];
+
 export default function Home() {
-  const [spec, setSpec] = useState<VisualizationSpec>();
-  const [graphData, setGraphData] = useState<PlainObject>({
-    table: [
-      { Year: 2015, GDP: 92 },
-      { Year: 2016, GDP: 48 },
-      { Year: 2017, GDP: 23 },
-      { Year: 2018, GDP: 15 },
-      { Year: 2019, GDP: 28 },
-      { Year: 2020, GDP: 55 },
-      { Year: 2021, GDP: 43 },
-      { Year: 2022, GDP: 91 },
-      { Year: 2023, GDP: 81 },
-    ],
-  });
+  const [utterances, setUtterances] = useState<JSX.Element[]>();
+  //   const [graphData, setGraphData] = useState<PlainObject>({
+  //     table: [
+  //       { Year: 2015, GDP: 92 },
+  //       { Year: 2016, GDP: 48 },
+  //       { Year: 2017, GDP: 23 },
+  //       { Year: 2018, GDP: 15 },
+  //       { Year: 2019, GDP: 28 },
+  //       { Year: 2020, GDP: 55 },
+  //       { Year: 2021, GDP: 43 },
+  //       { Year: 2022, GDP: 91 },
+  //       { Year: 2023, GDP: 81 },
+  //     ],
+  //   });
 
   useEffect(() => {
-    fetchData();
+    processUtterances();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const fetchData = async () => {
-    const response = await ChatGPTService.initialise(
-      graphData["table"],
-      "bar",
-      "The year with the highest GDP is 2022. Highlight 2022 while displaying the rest of the data."
+  const processUtterances = async () => {
+    const promises = UTTERANCES.map(async (utterance, index) => {
+      const response = await ChatGPTService.initialise(utterance);
+
+      return (
+        <div key={index} className="w-72 p-5">
+          <span className="text-white">{utterance}</span>
+          <PrettyPrintJson data={response} />
+        </div>
+      );
+    });
+    const data = await Promise.all(promises);
+    setUtterances(data);
+  };
+
+  const renderUtterances = () => {
+    if (!utterances) {
+      return (
+        <div className="text-white italic">
+          Utterances are getting processed...
+        </div>
+      );
+    }
+    return (
+      <div className="flex divide-x-2 divide-white space-x-5">{utterances}</div>
     );
-
-    if (!response) {
-      return;
-    }
-    console.log(response);
-
-    // Response may contain text other than JSON
-    try {
-      const { $schema, data, ...payload } = JSON.parse(response);
-      // NOTE: vega-lite data attribute is a plain object instead of an array
-      setSpec({ ...payload, data: { name: "table" } });
-    } catch (error) {
-      console.log(error);
-    }
   };
 
-  const renderGraph = () => {
-    if (!spec || !graphData) {
-      return <div>Missing spec and data</div>;
-    }
-    return <VegaLite spec={spec} data={graphData} />;
-  };
+  //   const renderGraph = () => {
+  //     if (!spec || !graphData) {
+  //       return <div>Missing spec and data</div>;
+  //     }
+  //     return <VegaLite spec={spec} data={graphData} />;
+  //   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-screen bg-black">
-      <span className="text-white font-bold text-3xl mb-5">Graph</span>
-      {renderGraph()}
+    <div className="flex flex-col justify-center items-center h-screen w-screen bg-black text-white">
+      <span className="font-bold text-3xl mb-5">VQL Schema</span>
+      {renderUtterances()}
     </div>
   );
 }
