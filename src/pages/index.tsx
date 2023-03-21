@@ -43,7 +43,7 @@ export default function Home() {
 
   const processUtterances = async () => {
     const promises = UTTERANCES.map(async (utterance, index) => {
-      const response = await ChatGPTService.initialise(utterance);
+      const response = await ChatGPTService.initialise(utterance, "bar");
 
       return (
         <div key={index} className="w-72 p-5">
