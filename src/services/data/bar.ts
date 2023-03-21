@@ -1,9 +1,12 @@
 import { ChatCompletionRequestMessage } from "openai";
 
 export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
+  /* -------------------------------------------------------------------------- */
+  /*                          COUNTRY RANGE HIGHLIGHTS                          */
+  /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, from 2008 to 2012, Germany's growth ranged from 2% to 6%"`,
+    content: `Convert the following text into a VQL schema: "As shown in the bar chart, generation exceeded consumption in all the countries except Singapore"`,
   },
   {
     role: "assistant",
@@ -13,9 +16,19 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "highlight": "visual element",
             "in": ["data layer", "bar"],
             "where": {
-                "AND": [
-                    {"percentage": {"BETWEEN": ["2", "6"]}},
-                    {"year": {"BETWEEN": ["2008", "2012"]}}
+                "OR": [
+                    {
+                        "AND": [
+                            {"type": {"EQUAL": "production"}},
+                            {"country": {"EQUAL": "Singapore"}}
+                        ]
+                    },
+                    {
+                        "AND": [
+                            {"type": {"EQUAL": "consumption"}},
+                            {"country": {"EQUAL": "Singapore"}}
+                        ]
+                    }
                 ]
             }
         }
@@ -41,6 +54,29 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
         }
     }`,
   },
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "As shown in the bar chart, the largest electricity value is production in Singapore"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "AND": [
+                    {"type": {"EQUAL": "production"}},
+                    {"country": {"EQUAL": "Singapore"}}
+                ]
+            }
+        }
+    }`,
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                             X RANGE HIGHLIGHTS                             */
+  /* -------------------------------------------------------------------------- */
   {
     role: "user",
     content: `Convert the following text into a VQL schema: "Based on the histogram, most meals were between 100 and 1000 calories."`,
@@ -83,37 +119,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the bar chart, generation exceeded consumption in all the countries except Singapore"`,
-  },
-  {
-    role: "assistant",
-    content: `
-    {
-        "VQL": {
-            "highlight": "visual element",
-            "in": ["data layer", "bar"],
-            "where": {
-                "OR": [
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "production"}},
-                            {"country": {"EQUAL": "Singapore"}}
-                        ]
-                    },
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "consumption"}},
-                            {"country": {"EQUAL": "Singapore"}}
-                        ]
-                    }
-                ]
-            }
-        }
-    }`,
-  },
-  {
-    role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the bar chart, the largest electricity value is production in Singapore"`,
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, from 2008 to 2012, Germany's growth ranged from 2% to 6%"`,
   },
   {
     role: "assistant",
@@ -124,10 +130,74 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "AND": [
-                    {"type": {"EQUAL": "production"}},
-                    {"country": {"EQUAL": "Singapore"}}
+                    {"percentage": {"BETWEEN": ["2", "6"]}},
+                    {"year": {"BETWEEN": ["2008", "2012"]}}
                 ]
             }
+        }
+    }`,
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                         SINGLE CATEGORY HIGHLIGHTS                         */
+  /* -------------------------------------------------------------------------- */
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, Singapore and Malaysia were the lowest producers of electricity."`,
+  },
+  // TODO: Clarify if conditions (i.e. type and country) should be merged in OR
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "AND": [
+                    {
+                        "OR": [
+                            {"country": "Singapore"},
+                            {"country": "Malaysia"}
+                        ]
+                    },
+                    {
+                        "type": {"EQUAL": "consumption"}
+                    }
+                ]
+            }
+        }
+    }`,
+  },
+  /* -------------------------------------------------------------------------- */
+  /*                              COMMON HIGHLIGHTS                             */
+  /* -------------------------------------------------------------------------- */
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "The legend indicates that this bar chart has two categories."`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "legend",
+            "in": ["base layer"],
+            "where": {}
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "The countries are displayed along the y-axis."`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "legend",
+            "in": ["base layer"],
+            "where": {}
         }
     }`,
   },
