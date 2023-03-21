@@ -1,6 +1,6 @@
 import { ChatCompletionRequestMessage } from "openai";
 
-export const BAR_PROMPTS: ChatCompletionRequestMessage[] = [
+export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   {
     role: "user",
     content: `Convert the following text into a VQL schema: "Based on the bar chart, from 2008 to 2012, Germany's growth ranged from 2% to 6%"`,
