@@ -25,7 +25,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, nearly 90% of the respondents said they suffered massive or moderate disruptions to their source, supplies and ability to conduct business operations."`,
+    content: `Convert the following text into a VQL schema: "Based on the pie chart, nearly 90% of the respondents said they suffered massive or moderate disruptions to their source, supplies and ability to conduct business operations"`,
   },
   {
     role: "assistant",
@@ -45,7 +45,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, the largest section consisted of businesses experiencing minor disruption."`,
+    content: `Convert the following text into a VQL schema: "Based on the pie chart, the largest section consisted of businesses experiencing minor disruption"`,
   },
   {
     role: "assistant",
@@ -64,7 +64,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, nearly all the respondents mentioned that they suffered some sort of pain in their lives, be it minor, moderate or extreme pain."`,
+    content: `Convert the following text into a VQL schema: "Based on the pie chart, nearly all the respondents mentioned that they suffered some sort of pain in their lives, be it minor, moderate or extreme pain"`,
   },
   {
     role: "assistant",
@@ -88,7 +88,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, 5% of the respondents characterized the pain as extreme."`,
+    content: `Convert the following text into a VQL schema: "Based on the pie chart, 5% of the respondents characterized the pain as extreme"`,
   },
   {
     role: "assistant",
