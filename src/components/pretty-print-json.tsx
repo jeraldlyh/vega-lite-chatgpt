@@ -17,7 +17,7 @@ export const PrettyPrintJson = ({ data }: IProps) => {
       setValue(data);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data]);
 
   if (!data) {
     return <span className="text-white italic">No JSON data</span>;
