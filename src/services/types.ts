@@ -1,1 +1,1 @@
-export type TGraph = "bar" | "pie";
+export type TGraph = "bar" | "pie" | "line";
