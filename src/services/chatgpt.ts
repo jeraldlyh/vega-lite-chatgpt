@@ -1,6 +1,5 @@
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
-import { PROMPT_MAPPING } from "./data";
-import { TGraph } from "./types";
+import { PROMPT_MAPPING, TGraph } from "../common";
 
 const configuration = new Configuration({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
