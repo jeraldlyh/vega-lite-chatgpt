@@ -52,7 +52,7 @@ const Chart = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-screen bg-black text-white">
+    <div className="flex flex-col justify-center items-center min-h-screen min-w-screen bg-black text-white">
       <span className="font-bold text-3xl mb-5">VQL Schema</span>
       {renderUtterances()}
     </div>

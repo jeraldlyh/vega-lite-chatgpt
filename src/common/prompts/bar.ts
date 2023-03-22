@@ -36,7 +36,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, both Singapore and Switzerland led in both electricity output and usage."`,
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, both Singapore and Switzerland led in both electricity output and usage"`,
   },
   {
     role: "assistant",
@@ -79,7 +79,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the histogram, most meals were between 100 and 1000 calories."`,
+    content: `Convert the following text into a VQL schema: "Based on the histogram, most meals were between 100 and 1000 calories"`,
   },
   {
     role: "assistant",
@@ -98,7 +98,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the histogram, some bars that at the 5% range include 5.05%, 5.11% and 5.15%."`,
+    content: `Convert the following text into a VQL schema: "As shown in the histogram, some bars that at the 5% range include 5.05%, 5.11% and 5.15%"`,
   },
   {
     role: "assistant",
@@ -142,7 +142,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, Singapore and Malaysia were the lowest producers of electricity."`,
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, Singapore and Malaysia were the lowest producers of electricity"`,
   },
   // TODO: Clarify if conditions (i.e. type and country) should be merged in OR
   {
@@ -173,7 +173,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The legend indicates that this bar chart has two categories."`,
+    content: `Convert the following text into a VQL schema: "The legend indicates that this bar chart has two categories"`,
   },
   {
     role: "assistant",
@@ -188,7 +188,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The countries are displayed along the y-axis."`,
+    content: `Convert the following text into a VQL schema: "The countries are displayed along the y-axis"`,
   },
   {
     role: "assistant",
