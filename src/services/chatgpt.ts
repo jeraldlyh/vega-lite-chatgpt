@@ -25,7 +25,7 @@ const initialise = async (
 
     VQL schema consists of the following attributes:
     1. 'highlight': represents an enum value 'visual element' | 'x-axis' | 'y-axis' | 'legend' | 'data range'
-    2. 'in': represents the layer indicated by an array of enum values. The array always contains the value 'data layer' or 'base layer' as the first element where 'base layer' represents the axes, title and legend while the 'data layer' represents visual elements like points in a scatter plot and bars in bar charts and histograms. Depending on the utterance, infer the intention and choose either 'data layer' or 'base layer' as the first element in the aray. An additional element is then appended to the array based on a set of rule mappings. The set of rule mappings is defined as such for 'in' attribute.
+    2. 'in': represents the layer indicated by an array of enum values. The array always contains the value 'data layer' or 'base layer' as the first element where 'base layer' represents the axes, title and legend while the 'data layer' represents visual elements like points in a scatter plot and bars in bar charts and histograms. Depending on the utterance, infer the intention and choose either 'data layer' or 'base layer' as the first element in the aray. An additional element is then appended to the array based on a set of rule mappings identified by the type of chart in the utterance. The set of rule mappings is defined as such for 'in' attribute.
         2a. scatter = point
         2b. histogram | bar = bar
         2c. heatmap = rect
@@ -38,7 +38,7 @@ const initialise = async (
         3d. MORE THAN
         3e. LESS THAN
     
-    Return the response in a valid JSON object, where the "VQL" attribute in the JSON object can be either a single object or an array of objects depending if multiple distinct "highlight" is required for charts like line chart.
+    Return the response in a valid JSON object, where the "VQL" attribute in the JSON object can be either a single object or an array of objects depending if multiple distinct "highlight" is required for charts like line chart. Do not include any text or comments outside of the JSON object
     `,
     },
   ];
