@@ -6,7 +6,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the bar chart, generation exceeded consumption in all the countries except Singapore"`,
+    content: `Convert the following text into a VQL schema: "As shown in the bar chart, A exceeded B in all the C except D"`,
   },
   {
     role: "assistant",
@@ -19,14 +19,14 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "OR": [
                     {
                         "AND": [
-                            {"type": {"EQUAL": "production"}},
-                            {"country": {"EQUAL": "Singapore"}}
+                            {"type": {"EQUAL": "A"}},
+                            {"name": {"EQUAL": "D"}}
                         ]
                     },
                     {
                         "AND": [
-                            {"type": {"EQUAL": "consumption"}},
-                            {"country": {"EQUAL": "Singapore"}}
+                            {"type": {"EQUAL": "B"}},
+                            {"name": {"EQUAL": "D"}}
                         ]
                     }
                 ]
@@ -36,7 +36,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, both Singapore and Switzerland are the leading countries"`,
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, both X and Y are the Z"`,
   },
   {
     role: "assistant",
@@ -47,8 +47,8 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "OR": [
-                    {"country": {"EQUAL": "Singapore"}},
-                    {"country": {"EQUAL": "Switzerland"}}
+                    {"name": {"EQUAL": "X"}},
+                    {"name": {"EQUAL": "Y"}}
                 ]
             }
         }
@@ -56,7 +56,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the bar chart, the largest electricity value is production in Singapore"`,
+    content: `Convert the following text into a VQL schema: "As shown in the bar chart, the largest value is X in Y"`,
   },
   {
     role: "assistant",
@@ -67,28 +67,8 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "AND": [
-                    {"type": {"EQUAL": "production"}},
-                    {"country": {"EQUAL": "Singapore"}}
-                ]
-            }
-        }
-    }`,
-  },
-  {
-    role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the bar chart, the largest electricity value is production in Singapore"`,
-  },
-  {
-    role: "assistant",
-    content: `
-    {
-        "VQL": {
-            "highlight": "visual element",
-            "in": ["data layer", "bar"],
-            "where": {
-                "AND": [
-                    {"type": {"EQUAL": "production"}},
-                    {"country": {"EQUAL": "Singapore"}}
+                    {"type": {"EQUAL": "X"}},
+                    {"name": {"EQUAL": "Y"}}
                 ]
             }
         }
@@ -99,7 +79,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the histogram, most meals were between 100 and 1000 calories"`,
+    content: `Convert the following text into a VQL schema: "Based on the histogram, most X were between Y and Z"`,
   },
   {
     role: "assistant",
@@ -110,7 +90,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "OR": [
-                    {"value": {"BETWEEN": ["500", "1500"]}}
+                    {"value": {"BETWEEN": ["Y", "Z"]}}
                 ]
             }
         }
@@ -118,7 +98,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the histogram, some bars that at the 5% range include 5.05%, 5.11% and 5.15%"`,
+    content: `Convert the following text into a VQL schema: "As shown in the histogram, some bars that at the A percent range include B percent, C percent and D percent"`,
   },
   {
     role: "assistant",
@@ -129,9 +109,9 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "OR": [
-                    {"value": {"EQUAL": "5.05"}},
-                    {"value": {"EQUAL": "5.11"}},
-                    {"value": {"EQUAL": "5.15"}}
+                    {"value": {"EQUAL": "B"}},
+                    {"value": {"EQUAL": "C"}},
+                    {"value": {"EQUAL": "D"}}
                 ]
             }
         }
@@ -139,7 +119,28 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, from 2008 to 2012, Germany's growth ranged from 2% to 6%"`,
+    content: `Convert the following text into a VQL schema: "As shown in the histogram, some bars such as A percent, B percent and C percent represents D"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "OR": [
+                    {"value": {"EQUAL": "A"}},
+                    {"value": {"EQUAL": "B"}},
+                    {"value": {"EQUAL": "C"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, from A to B, C ranged from D percent to E percent"`,
   },
   {
     role: "assistant",
@@ -150,8 +151,8 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "AND": [
-                    {"percentage": {"BETWEEN": ["2", "6"]}},
-                    {"year": {"BETWEEN": ["2008", "2012"]}}
+                    {"value": {"BETWEEN": ["A", "B"]}}
+                    {"value": {"BETWEEN": ["D", "E"]}},
                 ]
             }
         }
@@ -162,9 +163,8 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, Singapore and Malaysia were the lowest producers of electricity"`,
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, X and Y were the lowest Z"`,
   },
-  // TODO: Clarify if conditions (i.e. type and country) should be merged in OR
   {
     role: "assistant",
     content: `
@@ -173,15 +173,18 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "highlight": "visual element",
             "in": ["data layer", "bar"],
             "where": {
-                "AND": [
+                "OR": [
                     {
-                        "OR": [
-                            {"country": "Singapore"},
-                            {"country": "Malaysia"}
+                        "AND": [
+                            "value": {"EQUAL": "X"},
+                            "type": {"EQUAL": "Z"}
                         ]
                     },
                     {
-                        "type": {"EQUAL": "consumption"}
+                        "AND": [
+                            "value": {"EQUAL": "Y"},
+                            "type": {"EQUAL": "Z"}
+                        ]
                     }
                 ]
             }
@@ -190,7 +193,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar graph, the lowest values are 2 and 3"`,
+    content: `Convert the following text into a VQL schema: "Based on the bar graph, the lowest values are X and Y"`,
   },
   {
     role: "assistant",
@@ -201,8 +204,8 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "OR": [
-                    {"value": {"EQUAL": "2"}},
-                    {"value": {"EQUAL": "3"}}
+                    {"value": {"EQUAL": "X"}},
+                    {"value": {"EQUAL": "Y"}}
                 ]
             }
         }
@@ -210,7 +213,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, the top values are 400 and 900"`,
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, the top values are X and Y"`,
   },
   {
     role: "assistant",
@@ -221,8 +224,8 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "OR": [
-                    {"value": {"EQUAL": "400"}},
-                    {"value": {"EQUAL": "900"}}
+                    {"value": {"EQUAL": "X"}},
+                    {"value": {"EQUAL": "Y"}}
                 ]
             }
         }
@@ -233,7 +236,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The legend indicates that this bar chart has two categories"`,
+    content: `Convert the following text into a VQL schema: "The legend indicates that this bar chart has X categories"`,
   },
   {
     role: "assistant",
@@ -248,7 +251,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The countries are displayed along the y-axis"`,
+    content: `Convert the following text into a VQL schema: "The X are displayed along the y-axis"`,
   },
   {
     role: "assistant",
