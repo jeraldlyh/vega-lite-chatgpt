@@ -26,7 +26,12 @@ const initialise = async (
     Ignore the fact that certain data types may not fit certain types of graph. In the scenario where you are unable to determine a valid VQL, you should make your own assumptions without including it in your response and try your best to generate a reasonable VQL. 
 
     VQL schema consists of the following attributes:
-    1. 'highlight': represents an enum value 'visual element' | 'x-axis' | 'y-axis' | 'legend' | 'data range'
+    1. 'highlight': represents an enum value 'visual element' | 'x-axis' | 'y-axis' | 'legend' | 'data range' | 'below-baseline' | 'above-baseline'. The set of rule mappings is defined as such for 'highlight' attribute. 
+        1a. scatter = 'visual element' | 'x-axis' | 'y-axis' | 'legend' | 'data range' | 'below-baseline' | 'above-baseline'
+        1b. histogram | bar = 'visual element' | 'x-axis' | 'y-axis' | 'legend'
+        1c. heatmap = 'visual element'
+        1d. line = 'visual element' | 'x-axis' | 'y-axis' | 'legend' | 'data range' 
+        1e. pie = 'visual element' | 'legend'
     2. 'in': represents the layer indicated by an array of enum values. The array always contains the value 'data layer' or 'base layer' as the first element where 'base layer' represents the axes, title and legend while the 'data layer' represents visual elements like points in a scatter plot and bars in bar charts and histograms. Depending on the utterance, infer the intention and choose either 'data layer' or 'base layer' as the first element in the aray. Similarly, infer the chart type from the utterance, whereby an additional element is then appended to the array based on a set of rule mappings. The set of rule mappings is defined as such for 'in' attribute.
         2a. scatter = point
         2b. histogram | bar = bar
