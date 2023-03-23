@@ -36,7 +36,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, both Singapore and Switzerland led in both electricity output and usage"`,
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, both Singapore and Switzerland are the leading countries"`,
   },
   {
     role: "assistant",
@@ -49,6 +49,26 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "OR": [
                     {"country": {"EQUAL": "Singapore"}},
                     {"country": {"EQUAL": "Switzerland"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "As shown in the bar chart, the largest electricity value is production in Singapore"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "AND": [
+                    {"type": {"EQUAL": "production"}},
+                    {"country": {"EQUAL": "Singapore"}}
                 ]
             }
         }
@@ -163,6 +183,46 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                     {
                         "type": {"EQUAL": "consumption"}
                     }
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "Based on the bar graph, the lowest values are 2 and 3"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "OR": [
+                    {"value": {"EQUAL": "2"}},
+                    {"value": {"EQUAL": "3"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "Based on the bar chart, the top values are 400 and 900"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "OR": [
+                    {"value": {"EQUAL": "400"}},
+                    {"value": {"EQUAL": "900"}}
                 ]
             }
         }

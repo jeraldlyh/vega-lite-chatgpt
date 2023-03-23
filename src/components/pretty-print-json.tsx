@@ -5,8 +5,6 @@ interface IProps {
 }
 
 export const PrettyPrintJson = ({ data }: IProps) => {
-  console.log(data);
-
   const [value, setValue] = useState<string>("");
 
   useEffect(() => {

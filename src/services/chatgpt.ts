@@ -40,7 +40,7 @@ const initialise = async (
         3d. MORE THAN
         3e. LESS THAN
     
-    Return the content in a valid JSON object without any backticks, where the "VQL" attribute in the JSON object can be either a single VQL or an array of VQLs for scenarios where multiple distinct "highlight" is required for charts like line chart.
+    Return your response in a valid JSON object, where the "VQL" attribute in the JSON object can be either a single VQL or an array of VQLs for scenarios where multiple distinct "highlight" is required for charts like line chart. If "VQL" attribute is an array, the "highlight" attribute in each VQL schema must be distinct.
     `,
     },
   ];

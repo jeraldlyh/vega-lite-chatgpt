@@ -24,14 +24,23 @@ const Chart = () => {
       const response = await ChatGPTService.initialise(utterance, chartType);
 
       return (
-        <div key={index} className="w-72 p-5">
+        <div key={index} className="p-5">
           <span className="text-white">{utterance}</span>
           <PrettyPrintJson data={response} />
         </div>
       );
     });
-    const data = await Promise.all(promises);
-    setResults(data);
+    const responses = await Promise.allSettled(promises);
+    const parsedResponses = responses
+      .map((response) => {
+        if (response.status === "fulfilled") {
+          return response.value;
+        }
+        return undefined;
+      })
+      .filter((value): value is JSX.Element => value !== undefined);
+
+    setResults(parsedResponses);
   };
 
   const renderUtterances = () => {
@@ -41,19 +50,17 @@ const Chart = () => {
 
     if (!results) {
       return (
-        <div className="text-white italic">
+        <div className="text-center text-white italic">
           Utterances are getting processed...
         </div>
       );
     }
-    return (
-      <div className="flex divide-x-2 divide-white space-x-5">{results}</div>
-    );
+    return <div className="grid grid-cols-2">{results}</div>;
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen min-w-screen bg-black text-white">
-      <span className="font-bold text-3xl mb-5">VQL Schema</span>
+    <div className="flex flex-col min-h-screen min-w-screen bg-black text-white p-5">
+      <span className="font-bold text-3xl text-center mb-5">VQL Schema</span>
       {renderUtterances()}
     </div>
   );
