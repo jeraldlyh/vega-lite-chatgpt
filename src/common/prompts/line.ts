@@ -6,7 +6,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the line chart, let's take a look at the trends from 2001 to 2005."`,
+    content: `Convert the following text into a VQL schema: "Based on the line chart, let's take a look at the trends from X to Y"`,
   },
   {
     role: "assistant",
@@ -17,7 +17,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "in": ["base layer"],
                 "where": {
                     "OR": [
-                        {"year": {"BETWEEN": ["2001", "2005"]}}
+                        {"name": {"BETWEEN": ["X", "Y"]}}
                     ]
                 }
             }
@@ -28,7 +28,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the line chart, let's take a look at Singapore with 23% GDP in 2004."`,
+    content: `Convert the following text into a VQL schema: "Based on the line chart, let's take a look at X with Y percent in Z"`,
   },
   {
     role: "assistant",
@@ -39,9 +39,9 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "line"],
             "where": {
                 "AND": [
-                    {"name": {"EQUAL": "Singapore"}},
-                    {"percentage": {"EQUAL": "23"}},
-                    {"year": {"EQUAL": "2004"}}
+                    {"name": {"EQUAL": "X"}},
+                    {"percentage": {"EQUAL": "Y"}},
+                    {"year": {"EQUAL": "Z"}}
                 ]
             }
         }
@@ -49,7 +49,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the line chart, from 2005 to 2006, the figures for Singapore showed a considerable growth of 20%."`,
+    content: `Convert the following text into a VQL schema: "Based on the line chart, from A to B, the figures for C showed a growth of D percent"`,
   },
   {
     role: "assistant",
@@ -61,7 +61,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "in": ["base layer"],
                 "where": {
                     "OR": [
-                        {"year": {"BETWEEN": ["2005", "2006"]}}
+                        {"year": {"BETWEEN": ["A", "B"]}}
                     ]
                 }
             },
@@ -70,7 +70,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "in": ["data layer", "line"],
                 "where": {
                     "OR": [
-                        {"name": {"EQUAL": "Singapore"}}
+                        {"name": {"EQUAL": "C"}}
                     ]
                 }
             }
@@ -79,7 +79,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the line chart, from 2010 to 2015, the figures for Singapore, Malaysia, France and Switzerland grew exponentially."`,
+    content: `Convert the following text into a VQL schema: "Based on the line chart, from A to B, the figures for C, D, E and F increased"`,
   },
   {
     role: "assistant",
@@ -91,7 +91,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "in": ["base layer"],
                 "where": {
                     "OR": [
-                        {"year": {"BETWEEN": ["2010", "2015"]}}
+                        {"year": {"BETWEEN": ["A", "B"]}}
                     ]
                 }
             },
@@ -100,10 +100,10 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "in": ["data layer", "line"],
                 "where": {
                     "OR": [
-                        {"name": {"EQUAL": "Singapore"}},
-                        {"name": {"EQUAL": "Malaysia"}},
-                        {"name": {"EQUAL": "France"}},
-                        {"name": {"EQUAL": "Switzerland"}}
+                        {"name": {"EQUAL": "C"}},
+                        {"name": {"EQUAL": "D"}},
+                        {"name": {"EQUAL": "E"}},
+                        {"name": {"EQUAL": "F"}}
                     ]
                 }
             }
@@ -115,7 +115,7 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The y-axis displays the percentage of GDP growth."`,
+    content: `Convert the following text into a VQL schema: "Based on the line chart, the y-axis displays the X of Y"`,
   },
   {
     role: "assistant",
@@ -123,6 +123,21 @@ export const LINE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
     {
         "VQL": {
             "highlight": "y-axis",
+            "in": ["base layer"],
+            "where": {}
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `Convert the following text into a VQL schema: "Based on the line chart, the legend represents X"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "legend",
             "in": ["base layer"],
             "where": {}
         }
