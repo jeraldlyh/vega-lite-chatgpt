@@ -6,7 +6,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the bar chart, A exceeded B in all the C except D"`,
+    content: `'A', 'B', 'C' and 'D' are placeholder texts. Convert the following text into a VQL schema: "As shown in the bar chart, A exceeded B in all the C except D"`,
   },
   {
     role: "assistant",
@@ -36,7 +36,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, both X and Y are the Z"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "Based on the bar chart, both X and Y are the Z"`,
   },
   {
     role: "assistant",
@@ -56,7 +56,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the bar chart, the largest value is X in Y"`,
+    content: `'X' and 'Y' are placeholder texts. Convert the following text into a VQL schema: "As shown in the bar chart, the largest value is X in Y"`,
   },
   {
     role: "assistant",
@@ -79,7 +79,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the histogram, most X were between Y and Z"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "Based on the histogram, most X were between Y and Z"`,
   },
   {
     role: "assistant",
@@ -98,7 +98,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the histogram, some bars that at the A percent range include B percent, C percent and D percent"`,
+    content: `'A', 'B', 'C' and 'D' are placeholder texts. Convert the following text into a VQL schema: "As shown in the histogram, some bars that at the A percent range include B percent, C percent and D percent"`,
   },
   {
     role: "assistant",
@@ -119,7 +119,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "As shown in the histogram, some bars such as A percent, B percent and C percent represents D"`,
+    content: `'A', 'B', 'C' and 'D' are placeholder texts. Convert the following text into a VQL schema: "As shown in the histogram, some bars such as A percent, B percent and C percent represents D"`,
   },
   {
     role: "assistant",
@@ -140,7 +140,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, from A to B, C ranged from D percent to E percent"`,
+    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Convert the following text into a VQL schema: "Based on the bar chart, from A to B, C ranged from D percent to E percent"`,
   },
   {
     role: "assistant",
@@ -151,6 +151,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "bar"],
             "where": {
                 "AND": [
+                    {"name": {"EQUAL": "C"}},
                     {"value": {"BETWEEN": ["A", "B"]}}
                     {"value": {"BETWEEN": ["D", "E"]}},
                 ]
@@ -163,7 +164,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, X and Y were the lowest Z"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "Based on the bar chart, X and Y were the lowest Z"`,
   },
   {
     role: "assistant",
@@ -176,14 +177,14 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "OR": [
                     {
                         "AND": [
-                            "value": {"EQUAL": "X"},
-                            "type": {"EQUAL": "Z"}
+                            {"value": {"EQUAL": "X"}},
+                            {"type": {"EQUAL": "Z"}}
                         ]
                     },
                     {
                         "AND": [
-                            "value": {"EQUAL": "Y"},
-                            "type": {"EQUAL": "Z"}
+                            {"value": {"EQUAL": "Y"}},
+                            {"type": {"EQUAL": "Z"}}
                         ]
                     }
                 ]
@@ -193,7 +194,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar graph, the lowest values are X and Y"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "Based on the bar graph, the lowest values are X and Y"`,
   },
   {
     role: "assistant",
@@ -213,7 +214,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the bar chart, the top values are X and Y"`,
+    content: `'X' and 'Y' are placeholder texts. Convert the following text into a VQL schema: "Based on the bar chart, the top values are X and Y"`,
   },
   {
     role: "assistant",
@@ -226,6 +227,63 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "OR": [
                     {"value": {"EQUAL": "X"}},
                     {"value": {"EQUAL": "Y"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `'X' is a placeholder text. Convert the following text into a VQL schema: "As shown in the bar chart, X has shown good results across the years"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "OR": [
+                    {"name": {"EQUAL": "X"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `'A', 'B', 'C' and 'D' are placeholder texts. Convert the following text into a VQL schema: "The bar chart shows that there's only A number of B which have C less than D"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "OR": [
+                    {"name": {"EQUAL": "X"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `'X' and 'Y' are placeholder texts. Convert the following text into a VQL schema: "The bar chart shows that X has the lowest number of Y"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "bar"],
+            "where": {
+                "OR": [
+                    {"name": {"EQUAL": "X"}}
                 ]
             }
         }
@@ -236,7 +294,7 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The legend indicates that this bar chart has X categories"`,
+    content: `'X' is a placeholder text. Convert the following text into a VQL schema: "The legend indicates that this bar chart has X categories"`,
   },
   {
     role: "assistant",
@@ -251,7 +309,22 @@ export const BAR_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The X are displayed along the y-axis"`,
+    content: `'X' is a placeholder text. Convert the following text into a VQL schema: "The X are displayed along the y-axis in the bar chart"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "legend",
+            "in": ["base layer"],
+            "where": {}
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `'X' is a placeholder text. Convert the following text into a VQL schema: "There's about 3 categories of X in this bar chart"`,
   },
   {
     role: "assistant",
