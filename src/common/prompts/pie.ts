@@ -6,7 +6,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, the smallest section with any X was only Y percent"`,
+    content: `'X' and 'Y' are placeholder texts. Convert the following text into a VQL schema: "Based on the pie chart, the smallest section with any X was only Y percent"`,
   },
   {
     role: "assistant",
@@ -17,7 +17,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "arc"],
             "where": {
                 "OR": [
-                    {"percentage": {"EQUAL": "Y"}},
+                    {"value": {"EQUAL": "Y"}}
                 ]
             }
         }
@@ -25,7 +25,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, nearly X percent of the respondents mentioned Y, Z and Z"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "Based on the pie chart, nearly X percent of the respondents mentioned Y and Z"`,
   },
   {
     role: "assistant",
@@ -45,7 +45,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, the largest section consisted of X experiencing Y"`,
+    content: `'X' and 'Y' are placeholder texts, Convert the following text into a VQL schema: "The largest section in the pie chart consisted of X that mentioned Y"`,
   },
   {
     role: "assistant",
@@ -56,7 +56,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "in": ["data layer", "arc"],
             "where": {
                 "OR": [
-                    {"name": {"EQUAL": "Y"}},
+                    {"name": {"EQUAL": "X"}}
                 ]
             }
         }
@@ -64,7 +64,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, nearly all the respondents mentioned X, Y or Z"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "Nearly all the respondents in the pie chart mentioned X, Y or Z"`,
   },
   {
     role: "assistant",
@@ -77,7 +77,28 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
                 "OR": [
                     {"name": {"EQUAL": "X"}},
                     {"name": {"EQUAL": "Y"}},
-                    {"name": {"EQUAL": "Z"}},
+                    {"name": {"EQUAL": "Z"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `'X' is a placeholder text. Convert the following text into a VQL schema: "A big proportion of the pie chart represents X"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "arc"],
+            "where": {
+                "OR": [
+                    {"name": {"EQUAL": "X"}},
+                    {"name": {"EQUAL": "Y"}},
+                    {"name": {"EQUAL": "Z"}}
                 ]
             }
         }
@@ -88,7 +109,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, X percent of the respondents characterized the Y as Z"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "As shown in the pie chart, X percent of the data characterized the Y as Z"`,
   },
   {
     role: "assistant",
@@ -100,7 +121,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "where": {
                 "AND": [
                     {"name": {"EQUAL": "Z"}},
-                    {"percentage": {"EQUAL": "X"}},
+                    {"value": {"EQUAL": "X"}}
                 ]
             }
         }
@@ -108,7 +129,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, X is Y percent"`,
+    content: `'X' and 'Y' are placeholder texts. Convert the following text into a VQL schema: "Based on the pie chart, X is Y percent"`,
   },
   {
     role: "assistant",
@@ -120,7 +141,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "where": {
                 "AND": [
                     {"name": {"EQUAL": "X"}},
-                    {"percentage": {"EQUAL": "Y"}},
+                    {"value": {"EQUAL": "Y"}}
                 ]
             }
         }
@@ -128,7 +149,7 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "Based on the pie chart, X takes up Y percent of Z"`,
+    content: `'X', 'Y', and 'Z' are placeholder texts. Convert the following text into a VQL schema: "Based on the pie chart, X takes up Y percent of Z"`,
   },
   {
     role: "assistant",
@@ -140,7 +161,27 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
             "where": {
                 "AND": [
                     {"name": {"EQUAL": "X"}},
-                    {"percentage": {"EQUAL": "Y"}},
+                    {"value": {"EQUAL": "Y"}}
+                ]
+            }
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `'X' and 'Y' are placeholder texts. Convert the following text into a VQL schema: "In this pie chart, X is the least Y with Z percentage"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "visual element",
+            "in": ["data layer", "arc"],
+            "where": {
+                "AND": [
+                    {"name": {"EQUAL": "X"}},
+                    {"value": {"EQUAL": "Y"}}
                 ]
             }
         }
@@ -151,7 +192,22 @@ export const PIE_CHART_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `Convert the following text into a VQL schema: "The legend shows that this pie chart is made up of X categories"`,
+    content: `'X' is a placeholder text. Convert the following text into a VQL schema: "The legend shows that this pie chart is made up of X categories"`,
+  },
+  {
+    role: "assistant",
+    content: `
+    {
+        "VQL": {
+            "highlight": "legend",
+            "in": ["base layer"],
+            "where": {}
+        }
+    }`,
+  },
+  {
+    role: "user",
+    content: `'X' and 'Y' are placeholder texts. Convert the following text into a VQL schema: "This pie chart describes X number of Y"`,
   },
   {
     role: "assistant",
