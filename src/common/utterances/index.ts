@@ -4,7 +4,10 @@ import {
   TEST_BAR_CHART_UTTERANCES,
 } from "./bar";
 import { LINE_CHART_UTTERANCES } from "./line";
-import { PIE_CHART_UTTERANCES } from "./pie";
+import {
+  GROUND_TRUTH_PIE_CHART_UTTERANCES,
+  TEST_PIE_CHART_UTTERANCES,
+} from "./pie";
 import { SCATTER_CHART_UTTERANCES } from "./scatter";
 
 interface ITestTruth {
@@ -18,8 +21,8 @@ export const UTTERANCE_MAPPING: Record<TGraph, ITestTruth> = {
     GROUND_TRUTH: GROUND_TRUTH_BAR_CHART_UTTERANCES,
   },
   pie: {
-    TEST: PIE_CHART_UTTERANCES,
-    GROUND_TRUTH: GROUND_TRUTH_BAR_CHART_UTTERANCES,
+    TEST: TEST_PIE_CHART_UTTERANCES,
+    GROUND_TRUTH: GROUND_TRUTH_PIE_CHART_UTTERANCES,
   },
   line: {
     TEST: LINE_CHART_UTTERANCES,
