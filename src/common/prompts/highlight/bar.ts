@@ -30,6 +30,14 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
+    content: `'X' is a placeholder text. Infer the type of element from this utterance: "As shown in the bar chart, X exceeded everything except Y"`,
+  },
+  {
+    role: "assistant",
+    content: `visual element`,
+  },
+  {
+    role: "user",
     content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Based on the bar chart, both X and Y are the Z"`,
   },
   {
