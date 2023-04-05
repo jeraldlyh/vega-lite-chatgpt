@@ -9,10 +9,10 @@ export const PrettyPrintJson = ({ data }: IProps) => {
 
   useEffect(() => {
     try {
-      const json = JSON.stringify(JSON.parse(data), null, 2);
+      const json = JSON.stringify(data, null, 2);
       setValue(json);
     } catch (error) {
-      setValue(data);
+      setValue(JSON.stringify(data));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
