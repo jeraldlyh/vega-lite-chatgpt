@@ -10,7 +10,7 @@ const Chart = () => {
 
   const { type } = router.query;
   const chartType = type as TGraph;
-  const utterances = UTTERANCE_MAPPING[chartType];
+  const utterances = UTTERANCE_MAPPING[chartType]?.GROUND_TRUTH;
 
   useEffect(() => {
     processUtterances();
