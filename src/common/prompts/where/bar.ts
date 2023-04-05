@@ -100,6 +100,41 @@ export const BAR_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
+    content: `'A', 'B', 'C', and 'D' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar chart, both A and B led in C and D"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+                "OR": [
+                    {
+                        "AND": [
+                            {"type": {"EQUAL": "D"}},
+                            {"name": {"EQUAL": "A"}},
+                        ]
+                    },
+                    {
+                        "AND": [
+                            {"type": {"EQUAL": "D"}},
+                            {"name": {"EQUAL": "B"}},
+                        ]
+                    },
+                    {
+                        "AND": [
+                            {"type": {"EQUAL": "E"}},
+                            {"name": {"EQUAL": "A"}},
+                        ]
+                    },
+                    {
+                        "AND": [
+                            {"type": {"EQUAL": "E"}},
+                            {"name": {"EQUAL": "B"}},
+                        ]
+                    }
+                ]
+            }`,
+  },
+  {
+    role: "user",
     content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "As shown in the bar chart, the largest value is X in Y"`,
   },
   {
