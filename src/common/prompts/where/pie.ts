@@ -137,6 +137,20 @@ export const PIE_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
                 ]
             }`,
   },
+  {
+    role: "user",
+    content: `'A', 'B', 'C' and 'D' are placeholder texts. Infer the type of element from this utterance: "As shown in the pie chart, A percent of the respondents mentioned B, C and D"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"value": {"EQUAL": "C"}},
+            {"value": {"EQUAL": "D"}},
+            {"value": {"EQUAL": "E"}}
+        ]
+    }`,
+  },
   /* -------------------------------------------------------------------------- */
   /*                              COMMON HIGHLIGHTS                             */
   /* -------------------------------------------------------------------------- */
