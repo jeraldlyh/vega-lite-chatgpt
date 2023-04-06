@@ -57,6 +57,14 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
+    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Infer the type of element from this utterance: "As shown in the pie chart, A percent of the respondents mentioned C, D and E"`,
+  },
+  {
+    role: "assistant",
+    content: `visual element`,
+  },
+  {
+    role: "user",
     content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "Based on the pie chart, X is Y percent"`,
   },
   {
