@@ -14,12 +14,12 @@ export const TEST_BAR_CHART_UTTERANCES = [
 /*                           GROUND TRUTH UTTERANCES                          */
 /* -------------------------------------------------------------------------- */
 export const GROUND_TRUTH_BAR_CHART_UTTERANCES = [
-  "Based on the bar chart, in addition, generation exceeded consumption in all the countries except Germany.",
-  "Based on the bar chart, the largest electricity value is production in China.",
-  "Based on the bar chart, the top values for electricity are 5398 and 5322 respectively.",
-  "Based on the bar chart, overall, China and the United States led in both electricity output and use.",
-  "Based on the bar chart, Brazil, Germany and Korea were the lowest producers of electricity.",
-  "Based on the bar chart, the lowest values for electricity are 449.5 and 455.8 respectively.",
-  "Based on the bar chart, there was only one country which had readings that were more than 5000.",
-  "Based on the bar chart, the legend indicates that this bar chart has two categories.",
+  //   "Based on the bar chart, in addition, generation exceeded consumption in all the countries except Germany.",
+  //   "Based on the bar chart, the largest electricity value is production in China.",
+  //   "Based on the bar chart, the top values for electricity are 5398 and 5322 respectively.",
+  "Based on the bar chart, China and the United States led in both electricity output and use.",
+  //   "Based on the bar chart, Brazil, Germany and Korea were the lowest producers of electricity.",
+  //   "Based on the bar chart, the lowest values for electricity are 449.5 and 455.8 respectively.",
+  //   "Based on the bar chart, there was only one country which had readings that were more than 5000.",
+  //   "Based on the bar chart, the legend indicates that this bar chart has two categories.",
 ];

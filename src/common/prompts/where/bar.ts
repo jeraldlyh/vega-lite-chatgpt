@@ -1,297 +1,229 @@
 import { ChatCompletionRequestMessage } from "openai";
+import data from "../../data/bar.json";
 
 export const BAR_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
-  /* -------------------------------------------------------------------------- */
-  /*                         SINGLE CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar graph, the lowest values are X and Y"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "The lowest values are 449.5 and 455.8"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {"value": {"EQUAL": "X"}},
-                    {"value": {"EQUAL": "Y"}}
-                ]
-            }`,
+        "OR": [
+            {"electricity": {"EQUAL": "449.5"}},
+            {"electricity": {"EQUAL": "455.8"}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar chart, the top values are X and Y"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "The top values are 5398 and 5322"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {"value": {"EQUAL": "X"}},
-                    {"value": {"EQUAL": "Y"}}
-                ]
-            }`,
+        "OR": [
+            {"electricity": {"EQUAL": "5398"}},
+            {"electricity": {"EQUAL": "5322"}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'X' is a placeholder text. Obtain the predicate(s) from this utterance: "As shown in the bar chart, X has shown good results across the years"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "China has shown good results across the years"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {"name": {"EQUAL": "X"}}
-                ]
-            }`,
+        "AND": [
+            {"country": {"EQUAL": "China"}},
+            {"type": {"EQUAL": "production"}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar chart, both X and Y are the Z"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "Production in all the countries exceeded consumption except Germany"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {"name": {"EQUAL": "X"}},
-                    {"name": {"EQUAL": "Y"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar chart, most X were between Y and Z"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {"value": {"BETWEEN": ["Y", "Z"]}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Obtain the predicate(s) from this utterance: "As shown in the bar chart, some bars that such as B, C and D represents E"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {"value": {"EQUAL": "B"}},
-                    {"value": {"EQUAL": "C"}},
-                    {"value": {"EQUAL": "D"}}
-                ]
-            }`,
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                        MULTIPLE CATEGORY HIGHLIGHTS                        */
-  /* -------------------------------------------------------------------------- */
-  {
-    role: "user",
-    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar chart, from year A to B, C ranged from D percent to E percent"`,
-  },
-  {
-    role: "assistant",
-    content: `{
+        "OR": [
+            {
                 "AND": [
-                    {"name": {"EQUAL": "C"}},
-                    {"year": {"BETWEEN": ["A", "B"]}}
-                    {"value": {"BETWEEN": ["D", "E"]}},
+                    {"country": {"EQUAL": "Germany"}},
+                    {"type": {"EQUAL": "production"}}
                 ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'A', 'B', 'C', and 'D' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar chart, both A and B led in C and D"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "D"}},
-                            {"name": {"EQUAL": "A"}},
-                        ]
-                    },
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "D"}},
-                            {"name": {"EQUAL": "B"}},
-                        ]
-                    },
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "E"}},
-                            {"name": {"EQUAL": "A"}},
-                        ]
-                    },
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "E"}},
-                            {"name": {"EQUAL": "B"}},
-                        ]
-                    }
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "As shown in the bar chart, the largest value is X in Y"`,
-  },
-  {
-    role: "assistant",
-    content: `{
+            },
+            {
                 "AND": [
-                    {"type": {"EQUAL": "X"}},
-                    {"name": {"EQUAL": "Y"}}
+                    {"country": {"EQUAL": "Germany"}},
+                    {"type": {"EQUAL": "consumption"}}
                 ]
-            }`,
+            }
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'A', 'B', 'C' and 'D' are placeholder texts. Obtain the predicate(s) from this utterance: "As shown in the bar chart, A exceeded B in all the C except D"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "Both China and US led in production"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "A"}},
-                            {"name": {"EQUAL": "D"}}
-                        ]
-                    },
-                    {
-                        "AND": [
-                            {"type": {"EQUAL": "B"}},
-                            {"name": {"EQUAL": "D"}}
-                        ]
-                    }
+        "OR": [
+            {
+                "AND": [
+                    {"country": {"EQUAL": "China"}},
+                    {"type": {"EQUAL": "production"}}
                 ]
-            }`,
+            },
+            {
+                "AND": [
+                    {"country": {"EQUAL": "US"}},
+                    {"type": {"EQUAL": "production"}}
+                ]
+            }
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the bar chart, X and Y were the lowest Z"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "Most of the countries produced between 485 to 1057 electricity"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {
-                        "AND": [
-                            {"value": {"EQUAL": "X"}},
-                            {"type": {"EQUAL": "Z"}}
-                        ]
-                    },
-                    {
-                        "AND": [
-                            {"value": {"EQUAL": "Y"}},
-                            {"type": {"EQUAL": "Z"}}
-                        ]
-                    }
-                ]
-            }`,
+        "OR": [
+            {"electricity": {"BETWEEN": ["485", "1057"]}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'A', 'B', 'C' and 'D' are placeholder texts. Obtain the predicate(s) from this utterance: "The bar chart shows that A has a number of B which have C less than D"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "The production for all the countries ranges between 495.1 to 5398"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {
-                        "AND": [
-                            {"name": {"EQUAL": "B"}},
-                            {"value": {"EQUAL": "A"}}
-                        ]
-                    },
-                    {
-                        "AND": [
-                            {"name": {"EQUAL": "D"}},
-                            {"value": {"EQUAL": "A + C"}}
-                        ]
-                    }
-                ]
-            }`,
+        "OR": [
+            {"electricity": {"BETWEEN": ["495.1", "5398"]}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "The bar chart shows that X has the lowest number of Y"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "The largest production and consumption is China"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {"name": {"EQUAL": "X"}}
-                ]
-            }`,
+        "OR": [
+            {"country": {"EQUAL": "China"}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'X', 'Y', 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "The bar chart shows that X has the lowest number of Y while Z has the lowest"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "India has the highest excess in electrity other than China"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {"name": {"EQUAL": "X"}},
-                    {"name": {"EQUAL": "Z"}}
-                ]
-            }`,
+        "OR": [
+            {"country": {"EQUAL": "India"}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Obtain the predicate(s) from this utterance: "From the bar chart, A is the most B as it has the highest number of C while D is the least B with E"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "There was only one country which had both readings that were more than 4500"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {
-                        "AND": [
-                            {"name": {"EQUAL": "A"}},
-                            {"value": {"EQUAL": "C"}}
-                        },
-                    ]
-                    {
-                        "AND": [
-                            {"name": {"EQUAL": "D"}}
-                            {"value": {"EQUAL": "E"}}
-                        ]
-                    }
-                ]
-            }`,
+        "OR": [
+            {"electricity": {"BETWEEN": ["4500", "5398"]}}
+        ]
+    }`,
   },
   {
     role: "user",
-    content: `'A', 'B', 'C' and 'D' are placeholder texts. Obtain the predicate(s) from this utterance: "From the bar chart, A has B which is C more than D"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "Most countries had electricity values less than 1000"`,
   },
   {
     role: "assistant",
     content: `{
-                "OR": [
-                    {
-                        "AND": [
-                            {"name": {"EQUAL": "A"}},
-                            {"value": {"EQUAL": "B"}}
-                        },
-                    ]
-                    {
-                        "AND": [
-                            {"name": {"EQUAL": "D"}}
-                            {"value": {"EQUAL": "B + C"}}
-                        ]
-                    }
+        "OR": [
+            {"electricity": {"BETWEEN": ["0", "1000"]}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "Overall, China and the US led in both electricity output and use"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {
+                "AND": [
+                    {"country": {"EQUAL": "China"}},
+                    {"type": {"EQUAL": "production"}}
                 ]
-            }`,
+            },
+            {
+                "AND": [
+                    {"country": {"EQUAL": "China"}},
+                    {"type": {"EQUAL": "consumption"}}
+                ]
+            },
+            {
+                "AND": [
+                    {"country": {"EQUAL": "US"}},
+                    {"type": {"EQUAL": "production"}}
+                ]
+            },
+            {
+                "AND": [
+                    {"country": {"EQUAL": "US"}},
+                    {"type": {"EQUAL": "consumption"}}
+                ]
+            }
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "The 2nd and 3rd country's production were between 4000 and 5400"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"electricity": {"BETWEEN": ["4000", "5400"]}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "One of the countries where generation exceeded consumption is Japan"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"country": {"EQUAL": "Japan"}}
+        ]
+    }`,
   },
   /* -------------------------------------------------------------------------- */
   /*                              COMMON HIGHLIGHTS                             */
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' is a placeholder text. Obtain the predicate(s) from this utterance: "The legend indicates that this bar chart has X categories"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "The legend indicates that this bar chart has two categories"`,
   },
   {
     role: "assistant",
@@ -299,15 +231,7 @@ export const BAR_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' is a placeholder text. Obtain the predicate(s) from this utterance: "The X are displayed along the y-axis in the bar chart"`,
-  },
-  {
-    role: "assistant",
-    content: `{}`,
-  },
-  {
-    role: "user",
-    content: `'X' is a placeholder text. Obtain the predicate(s) from this utterance: "There's about 3 categories of X in this bar chart"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "The countries are displayed along the y-axis"`,
   },
   {
     role: "assistant",

@@ -1,12 +1,10 @@
 import { ChatCompletionRequestMessage } from "openai";
+import data from "../../data/bar.json";
 
 export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
-  /* -------------------------------------------------------------------------- */
-  /*                         SINGLE CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Based on the bar graph, the lowest values are X and Y"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "The lowest values are 449.5 and 455.8"`,
   },
   {
     role: "assistant",
@@ -14,7 +12,7 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "Based on the bar chart, the top values are X and Y"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "The top values are 5398 and 5322"`,
   },
   {
     role: "assistant",
@@ -22,7 +20,7 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' is a placeholder text. Infer the type of element from this utterance: "As shown in the bar chart, X has shown good results across the years"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "China has shown good results across the years"`,
   },
   {
     role: "assistant",
@@ -30,7 +28,7 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' is a placeholder text. Infer the type of element from this utterance: "As shown in the bar chart, X exceeded everything except Y"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "Production in all the countries exceeded consumption except Germany"`,
   },
   {
     role: "assistant",
@@ -38,7 +36,7 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Based on the bar chart, both X and Y are the Z"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "Both China and US led in production"`,
   },
   {
     role: "assistant",
@@ -46,34 +44,23 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Based on the bar chart, most X were between Y and Z"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "Most of the countries produced between 485 to 1057 electricity"`,
   },
   {
     role: "assistant",
-    content: `visual element`,
+    content: `data range`,
   },
-  /* -------------------------------------------------------------------------- */
-  /*                        MULTIPLE CATEGORY HIGHLIGHTS                        */
-  /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Infer the type of element from this utterance: "As shown in the bar chart, some bars that such as B, C and D represents E"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "The production for all the countries ranges between 495.1 to 5398"`,
   },
   {
     role: "assistant",
-    content: `visual element`,
+    content: `data range`,
   },
   {
     role: "user",
-    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Infer the type of element from this utterance: "Based on the bar chart, from year A to B, C ranged from D percent to E percent"`,
-  },
-  {
-    role: "assistant",
-    content: `visual element`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "As shown in the bar chart, the largest value is X in Y"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "The largest production and consumption is China"`,
   },
   {
     role: "assistant",
@@ -81,7 +68,7 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'A', 'B', 'C' and 'D' are placeholder texts. Infer the type of element from this utterance: "As shown in the bar chart, A exceeded B in all the C except D"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "India has the highest excess in electrity other than China"`,
   },
   {
     role: "assistant",
@@ -89,7 +76,23 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Based on the bar chart, X and Y were the lowest Z"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "There was only one country which had both readings that were more than 4500"`,
+  },
+  {
+    role: "assistant",
+    content: `data range`,
+  },
+  {
+    role: "user",
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "Most countries had electricity values less than 1000"`,
+  },
+  {
+    role: "assistant",
+    content: `data range`,
+  },
+  {
+    role: "user",
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "Overall, China and the Korea led in both electricity output and use"`,
   },
   {
     role: "assistant",
@@ -97,39 +100,15 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'A', 'B', 'C' and 'D' are placeholder texts. Infer the type of element from this utterance: "The bar chart shows that A has a number of B which have C less than D"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "The 2nd and 3rd country's production were between 4000 and 5400"`,
   },
   {
     role: "assistant",
-    content: `visual element`,
+    content: `data range`,
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "The bar chart shows that X has the lowest number of Y"`,
-  },
-  {
-    role: "assistant",
-    content: `visual element`,
-  },
-  {
-    role: "user",
-    content: `'X', 'Y', 'Z' are placeholder texts. Infer the type of element from this utterance: "The bar chart shows that X has the lowest number of Y while Z has the lowest"`,
-  },
-  {
-    role: "assistant",
-    content: `visual element`,
-  },
-  {
-    role: "user",
-    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Infer the type of element from this utterance: "From the bar chart, A is the most B as it has the highest number of C while D is the least B with E"`,
-  },
-  {
-    role: "assistant",
-    content: `visual element`,
-  },
-  {
-    role: "user",
-    content: `'A', 'B', 'C' and 'D' are placeholder texts. Infer the type of element from this utterance: "From the bar chart, A has B which is C more than D"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "One of the countries where generation exceeded consumption is Japan"`,
   },
   {
     role: "assistant",
@@ -140,7 +119,7 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' is a placeholder text. Infer the type of element from this utterance: "The legend indicates that this bar chart has X categories"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "The legend indicates that this bar chart has two categories"`,
   },
   {
     role: "assistant",
@@ -148,18 +127,10 @@ export const BAR_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' is a placeholder text. Infer the type of element from this utterance: "The X are displayed along the y-axis in the bar chart"`,
+    content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "The countries are displayed along the y-axis"`,
   },
   {
     role: "assistant",
     content: `y-axis`,
-  },
-  {
-    role: "user",
-    content: `'X' is a placeholder text. Infer the type of element from this utterance: "There's about 3 categories of X in this bar chart"`,
-  },
-  {
-    role: "assistant",
-    content: `legend`,
   },
 ];

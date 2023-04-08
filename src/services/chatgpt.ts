@@ -1,5 +1,6 @@
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 import { PROMPT_MAPPING, TGraph } from "../common";
+import data from "../common/data/bar.json";
 
 const configuration = new Configuration({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
@@ -23,7 +24,7 @@ const initialise = async (
     ...PROMPT_MAPPING[graphType].HIGHLIGHT,
     {
       role: "user",
-      content: `Infer the type of element from this utterance: "${text}"`,
+      content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "${text}"`,
     },
   ];
   const highlightResponse = await openAi.createChatCompletion({
@@ -39,7 +40,7 @@ const initialise = async (
     ...PROMPT_MAPPING[graphType].IN,
     {
       role: "user",
-      content: `Obtain the elements from this utterance: "${text}"`,
+      content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "${text}"`,
     },
   ];
   const inResponse = await openAi.createChatCompletion({
@@ -55,7 +56,7 @@ const initialise = async (
     ...PROMPT_MAPPING[graphType].WHERE,
     {
       role: "user",
-      content: `Obtain the predicate(s) from this utterance: "${text}"`,
+      content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "${text}"`,
     },
   ];
   const whereResponse = await openAi.createChatCompletion({

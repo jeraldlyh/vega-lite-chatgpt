@@ -18,14 +18,14 @@ export const TEST_PIE_CHART_UTTERANCES = [
 /*                           GROUND TRUTH UTTERANCES                          */
 /* -------------------------------------------------------------------------- */
 export const GROUND_TRUTH_PIE_CHART_UTTERANCES = [
-  "Based on the pie chart, nearly 87% of respondents said they suffered massive or moderate disruptions to their sourcing, supplies and ability to conduct business.",
-  "Based on the pie chart, some 24.3% characterized the disruption as “massive”.",
-  "Based on the pie chart, the largest section consisted of businesses experiencing moderate disruption.",
-  "Based on the pie chart, businesses experiencing minor or no real disruptions were in the minority.",
-  "Based on the pie chart, the smallest section with any real disruption was only 11%.",
-  "Based on the pie chart, nearly 98% of respondents said they suffered some sort of disruption to their business, be it massive, moderate, or minor disruptions.",
-  "Based on the pie chart, some 11% characterized the disruption as “minor”.",
-  "Based on the pie chart, only 2.2% said they experienced no real disruptions in the supply chain for their businesses.​",
+  //   "Based on the pie chart, nearly 87% of respondents said they suffered massive or moderate disruptions to their sourcing, supplies and ability to conduct business.",
+  //   "Based on the pie chart, some 24.3% characterized the disruption as massive.",
+  //   "Based on the pie chart, the largest section consisted of businesses experiencing moderate disruption.",
+  //   "Based on the pie chart, businesses experiencing minor or no real disruptions were in the minority.",
+  //   "Based on the pie chart, the smallest section with any real disruption was only 11%.",
+  //   "Based on the pie chart, nearly 98% of respondents said they suffered some sort of disruption to their business, be it massive, moderate, or minor disruptions.",
+  //   "Based on the pie chart, some 11% characterized the disruption as “minor”.",
+  //   "Based on the pie chart, only 2.2% said they experienced no real disruptions in the supply chain for their businesses.​",
   "Based on the pie chart, businesses experiencing massive or moderate disruptions were in the majority.",
   "Based on the pie chart, the legend shows that this pie chart is made up of 4 categories.",
 ];
