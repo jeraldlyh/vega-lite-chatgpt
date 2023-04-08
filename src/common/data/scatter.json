@@ -1,0 +1,177 @@
+[
+    {
+        "1980": 99,
+        "2010": 98,
+        "name": "Secretary"
+    },
+    {
+        "1980": 98,
+        "2010": 98,
+        "name": "Hygienist"
+    },
+    {
+        "1980": 96,
+        "2010": 91,
+        "name": "Nurse"
+    },
+    {
+        "1980": 87,
+        "2010": 89,
+        "name": "Housekeeper"
+    },
+    {
+        "1980": 70,
+        "2010": 89,
+        "name": "Paralegal"
+    },
+    {
+        "1980": 64,
+        "2010": 81,
+        "name": "Social worker"
+    },
+    {
+        "1980": 75,
+        "2010": 80,
+        "name": "Teacher (K-8)"
+    },
+    {
+        "1980": 72,
+        "2010": 72,
+        "name": "Physical Therapist"
+    },
+    {
+        "1980": 50,
+        "2010": 70,
+        "name": "Healthcare Manager"
+    },
+    {
+        "1980": 90,
+        "2010": 67,
+        "name": "Welfare Aide"
+    },
+    {
+        "1980": 37,
+        "2010": 64,
+        "name": "Education Manager"
+    },
+    {
+        "1980": 36,
+        "2010": 62,
+        "name": "Accountants"
+    },
+    {
+        "1980": 35,
+        "2010": 61,
+        "name": "HR Manager "
+    },
+    {
+        "1980": 55,
+        "2010": 60,
+        "name": "Teacher (HS)"
+    },
+    {
+        "1980": 47,
+        "2010": 53,
+        "name": "Real Estate"
+    },
+    {
+        "1980": 48,
+        "2010": 51,
+        "name": "Bus Driver"
+    },
+    {
+        "1980": 48,
+        "2010": 48,
+        "name": "Editor/Reporter"
+    },
+    {
+        "1980": 12,
+        "2010": 39,
+        "name": "Mail Carrier"
+    },
+    {
+        "1980": 14,
+        "2010": 36,
+        "name": "Lawyer"
+    },
+    {
+        "1980": 14,
+        "2010": 36,
+        "name": "Doctor"
+    },
+    {
+        "1980": 26,
+        "2010": 34,
+        "name": "Manager"
+    },
+    {
+        "1980": 21,
+        "2010": 29,
+        "name": "Computer Scientist"
+    },
+    {
+        "1980": 6,
+        "2010": 28,
+        "name": "Dentist"
+    },
+    {
+        "1980": 8,
+        "2010": 27,
+        "name": "Architect"
+    },
+    {
+        "1980": 28,
+        "2010": 24,
+        "name": "Computer Programmer"
+    },
+    {
+        "1980": 24,
+        "2010": 23,
+        "name": "CEO"
+    },
+    {
+        "1980": 5,
+        "2010": 17,
+        "name": "Police"
+    },
+    {
+        "1980": 3,
+        "2010": 12,
+        "name": "Aero Engineer"
+    },
+    {
+        "1980": 4,
+        "2010": 10,
+        "name": "Elect Engineer"
+    },
+    {
+        "1980": 10,
+        "2010": 8,
+        "name": "Telecom Repair"
+    },
+    {
+        "1980": 1,
+        "2010": 8,
+        "name": "Mech Engineer"
+    },
+    {
+        "1980": 8,
+        "2010": 6,
+        "name": "Welder"
+    },
+    {
+        "1980": 1,
+        "2010": 5,
+        "name": "Pilot"
+    },
+    {
+        "1980": 2,
+        "2010": 2,
+        "name": "Electrician"
+    },
+    {
+        "1980": 1,
+        "2010": 1,
+        "name": "Auto Mechanic"
+    }
+]
