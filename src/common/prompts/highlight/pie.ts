@@ -1,12 +1,9 @@
 import { ChatCompletionRequestMessage } from "openai";
 
 export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
-  /* -------------------------------------------------------------------------- */
-  /*                         SINGLE CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "Based on the pie chart, the smallest section with any X was only Y percent"`,
+    content: `The utterance is: "The smallest section with any disruption was only 2.2 percent"`,
   },
   {
     role: "assistant",
@@ -14,7 +11,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Based on the pie chart, nearly X percent of the respondents mentioned Y and Z"`,
+    content: `The utterance is: "Nearly 35 percent of the respondents mentioned that they expierenced minor and massive disruption in their businesses"`,
   },
   {
     role: "assistant",
@@ -22,7 +19,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts, Infer the type of element from this utterance: "The largest section in the pie chart consisted of X that mentioned Y"`,
+    content: `The utterance is: "The largest section consisted of mainly moderate disruption"`,
   },
   {
     role: "assistant",
@@ -30,7 +27,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Nearly all the respondents in the pie chart mentioned X, Y or Z"`,
+    content: `The utterance is: "Nearly all the respondents mentioned they experienced some disruption"`,
   },
   {
     role: "assistant",
@@ -38,18 +35,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' is a placeholder text. Infer the type of element from this utterance: "A big proportion of the pie chart represents X"`,
-  },
-  {
-    role: "assistant",
-    content: `visual element`,
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                          MULTI CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
-  {
-    role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "As shown in the pie chart, X percent of the data characterized the Y as Z"`,
+    content: `The utterance is: "A small proportion of the respondents mentioned that they did not experienced any disruptions due to available resources"`,
   },
   {
     role: "assistant",
@@ -57,7 +43,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'A', 'B', 'C', 'D' and 'E' are placeholder texts. Infer the type of element from this utterance: "As shown in the pie chart, A percent of the respondents mentioned C, D and E"`,
+    content: `The utterance is: "11 percent of the respondents characterized the disruption as minor"`,
   },
   {
     role: "assistant",
@@ -65,7 +51,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "Based on the pie chart, X is Y percent"`,
+    content: `The utterance is: "98 percent of the respondents expressed their concern regarding minor, moderate and massive disruptions"`,
   },
   {
     role: "assistant",
@@ -73,7 +59,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Infer the type of element from this utterance: "Based on the pie chart, X takes up Y percent of Z"`,
+    content: `The utterance is: "Based on the pie chart, moderate disruption is 62.5 percent"`,
   },
   {
     role: "assistant",
@@ -81,7 +67,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "In this pie chart, X is the least Y with Z percentage"`,
+    content: `The utterance is: "After obtaining the survey, our team has found out that 11 percent of the respondents characterized the disruption as minor"`,
   },
   {
     role: "assistant",
@@ -92,15 +78,7 @@ export const PIE_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' is a placeholder text. Infer the type of element from this utterance: "The legend shows that this pie chart is made up of X categories"`,
-  },
-  {
-    role: "assistant",
-    content: `legend`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Infer the type of element from this utterance: "This pie chart describes X number of Y"`,
+    content: `The utterance is: "The legend shows that there's 4 categories"`,
   },
   {
     role: "assistant",

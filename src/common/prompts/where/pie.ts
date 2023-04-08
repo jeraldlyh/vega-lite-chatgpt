@@ -1,153 +1,119 @@
 import { ChatCompletionRequestMessage } from "openai";
 
 export const PIE_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
-  /* -------------------------------------------------------------------------- */
-  /*                         SINGLE CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the pie chart, the smallest section with any X was only Y percent"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {"value": {"EQUAL": "Y"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the pie chart, nearly X percent of the respondents mentioned Y and Z"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {"name": {"EQUAL": "Y"}},
-                    {"name": {"EQUAL": "Z"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts, Obtain the predicate(s) from this utterance: "The largest section in the pie chart consisted of X that mentioned Y"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {"name": {"EQUAL": "X"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "Nearly all the respondents in the pie chart mentioned X, Y or Z"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {"name": {"EQUAL": "X"}},
-                    {"name": {"EQUAL": "Y"}},
-                    {"name": {"EQUAL": "Z"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X' is a placeholder text. Obtain the predicate(s) from this utterance: "A big proportion of the pie chart represents X"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "OR": [
-                    {"name": {"EQUAL": "X"}},
-                    {"name": {"EQUAL": "Y"}},
-                    {"name": {"EQUAL": "Z"}}
-                ]
-            }`,
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                          MULTI CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
-  {
-    role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "As shown in the pie chart, X percent of the data characterized the Y as Z"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "AND": [
-                    {"name": {"EQUAL": "Z"}},
-                    {"value": {"EQUAL": "X"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "Judging from the pie chart, X percent of the data are considered as Y"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "AND": [
-                    {"name": {"EQUAL": "Z"}},
-                    {"value": {"EQUAL": "Y"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the pie chart, X is Y percent"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "AND": [
-                    {"name": {"EQUAL": "X"}},
-                    {"value": {"EQUAL": "Y"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the predicate(s) from this utterance: "Based on the pie chart, X takes up Y percent of Z"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "AND": [
-                    {"name": {"EQUAL": "X"}},
-                    {"value": {"EQUAL": "Y"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "In this pie chart, X is the least Y with Z percentage"`,
-  },
-  {
-    role: "assistant",
-    content: `{
-                "AND": [
-                    {"name": {"EQUAL": "X"}},
-                    {"value": {"EQUAL": "Y"}}
-                ]
-            }`,
-  },
-  {
-    role: "user",
-    content: `'A', 'B', 'C' and 'D' are placeholder texts. Infer the type of element from this utterance: "As shown in the pie chart, A percent of the respondents mentioned B, C and D"`,
+    content: `The utterance is: "The smallest section with any disruption was only 2.2 percent"`,
   },
   {
     role: "assistant",
     content: `{
         "OR": [
-            {"value": {"EQUAL": "C"}},
-            {"value": {"EQUAL": "D"}},
-            {"value": {"EQUAL": "E"}}
+            {"percentage": {"EQUAL": "2.2"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "Nearly 35 percent of the respondents mentioned that they experienced minor and massive disruption in their businesses"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"name": {"EQUAL": "minor"}},
+            {"name": {"EQUAL": "massive"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "The largest section consisted of mainly moderate disruption"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"name": {"EQUAL": "moderate"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "Nearly all the respondents mentioned they experienced some disruption"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"name": {"EQUAL": "minor"}},
+            {"name": {"EQUAL": "moderate"}},
+            {"name": {"EQUAL": "massive"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "A small proportion of the respondents mentioned that they did not experienced any disruptions due to available resources"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"name": {"EQUAL": "no disruption"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "11 percent of the respondents characterized the disruption as minor"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "AND": [
+            {"name": {"EQUAL": "minor"}},
+            {"percentage": {"EQUAL": "11"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "98 percent of the respondents expressed their concern regarding minor, moderate and massive disruptions"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"name": {"EQUAL": "minor"}},
+            {"name": {"EQUAL": "moderate"}},
+            {"name": {"EQUAL": "massive"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "Based on the pie chart, moderate disruption is 62.5 percent"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "AND": [
+            {"name": {"EQUAL": "moderate"}},
+            {"percentage": {"EQUAL": "62.5"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "After obtaining the survey, our team has found out that 11 percent of the respondents characterized the disruption as minor"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "AND": [
+            {"name": {"EQUAL": "minor"}},
+            {"percentage": {"EQUAL": "11"}}
         ]
     }`,
   },
@@ -156,15 +122,7 @@ export const PIE_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' is a placeholder text. Obtain the predicate(s) from this utterance: "The legend shows that this pie chart is made up of X categories"`,
-  },
-  {
-    role: "assistant",
-    content: `{}`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the predicate(s) from this utterance: "This pie chart describes X number of Y"`,
+    content: `The utterance is: "The legend shows that there's 4 categories"`,
   },
   {
     role: "assistant",

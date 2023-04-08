@@ -1,98 +1,84 @@
 import { ChatCompletionRequestMessage } from "openai";
 
 export const PIE_CHART_IN_PROMPTS: ChatCompletionRequestMessage[] = [
-  /* -------------------------------------------------------------------------- */
-  /*                         SINGLE CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the elements from this utterance: "Based on the pie chart, the smallest section with any X was only Y percent"`,
+    content: `The utterance is: "The smallest section with any disruption was only 2.2 percent"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the elements from this utterance: "Based on the pie chart, nearly X percent of the respondents mentioned Y and Z"`,
+    content: `The utterance is: "Nearly 35 percent of the respondents mentioned that they expierenced minor and massive disruption in their businesses"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts, Obtain the elements from this utterance: "The largest section in the pie chart consisted of X that mentioned Y"`,
+    content: `The utterance is: "The largest section consisted of mainly moderate disruption"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the elements from this utterance: "Nearly all the respondents in the pie chart mentioned X, Y or Z"`,
+    content: `The utterance is: "Nearly all the respondents mentioned they experienced some disruption"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
   },
   {
     role: "user",
-    content: `'X' is a placeholder text. Obtain the elements from this utterance: "A big proportion of the pie chart represents X"`,
+    content: `The utterance is: "A small proportion of the respondents mentioned that they did not experienced any disruptions due to available resources"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
-  },
-  /* -------------------------------------------------------------------------- */
-  /*                          MULTI CATEGORY HIGHLIGHTS                         */
-  /* -------------------------------------------------------------------------- */
-  {
-    role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the elements from this utterance: "As shown in the pie chart, X percent of the data characterized the Y as Z"`,
-  },
-  {
-    role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the elements from this utterance: "Based on the pie chart, X is Y percent"`,
+    content: `The utterance is: "11 percent of the respondents characterized the disruption as minor"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
   },
   {
     role: "user",
-    content: `'X', 'Y', and 'Z' are placeholder texts. Obtain the elements from this utterance: "Based on the pie chart, X takes up Y percent of Z"`,
+    content: `The utterance is: "98 percent of the respondents expressed their concern regarding minor, moderate and massive disruptions"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
   },
   {
     role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the elements from this utterance: "In this pie chart, X is the least Y with Z percentage"`,
+    content: `The utterance is: "Based on the pie chart, moderate disruption is 62.5 percent"`,
   },
   {
     role: "assistant",
-    content: `["data layer", "arc"]`,
+    content: `["data layer", "arc]`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "After obtaining the survey, our team has found out that 11 percent of the respondents characterized the disruption as minor"`,
+  },
+  {
+    role: "assistant",
+    content: `["data layer", "arc]`,
   },
   /* -------------------------------------------------------------------------- */
   /*                              COMMON HIGHLIGHTS                             */
   /* -------------------------------------------------------------------------- */
   {
     role: "user",
-    content: `'X' is a placeholder text. Obtain the elements from this utterance: "The legend shows that this pie chart is made up of X categories"`,
-  },
-  {
-    role: "assistant",
-    content: `["base layer"]`,
-  },
-  {
-    role: "user",
-    content: `'X' and 'Y' are placeholder texts. Obtain the elements from this utterance: "This pie chart describes X number of Y"`,
+    content: `The utterance is: "The legend shows that there's 4 categories"`,
   },
   {
     role: "assistant",
