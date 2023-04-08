@@ -1,6 +1,6 @@
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
-import { PROMPT_MAPPING, TGraph } from "../common";
-import data from "../common/data/bar.json";
+import { PROMPT_MAPPING, SYSTEM_PROMPTS, TGraph } from "../common";
+import { DATASET } from "../common/data";
 
 const configuration = new Configuration({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
@@ -16,11 +16,13 @@ const initialise = async (
     return;
   }
 
+  const data = DATASET[graphType];
+
   /* -------------------------------------------------------------------------- */
   /*                                  HIGHLIGHT                                 */
   /* -------------------------------------------------------------------------- */
   const highlightPrompts: ChatCompletionRequestMessage[] = [
-    ...PROMPT_MAPPING["system"].HIGHLIGHT,
+    SYSTEM_PROMPTS.HIGHLIGHT(data),
     ...PROMPT_MAPPING[graphType].HIGHLIGHT,
     {
       role: "user",
@@ -36,7 +38,7 @@ const initialise = async (
   /*                                     IN                                     */
   /* -------------------------------------------------------------------------- */
   const inPrompts: ChatCompletionRequestMessage[] = [
-    ...PROMPT_MAPPING["system"].IN,
+    SYSTEM_PROMPTS.IN(data),
     ...PROMPT_MAPPING[graphType].IN,
     {
       role: "user",
@@ -52,7 +54,7 @@ const initialise = async (
   /*                                    WHERE                                   */
   /* -------------------------------------------------------------------------- */
   const wherePrompts: ChatCompletionRequestMessage[] = [
-    ...PROMPT_MAPPING["system"].WHERE,
+    SYSTEM_PROMPTS.WHERE(data),
     ...PROMPT_MAPPING[graphType].WHERE,
     {
       role: "user",
