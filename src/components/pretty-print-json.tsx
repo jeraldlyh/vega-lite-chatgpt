@@ -8,12 +8,8 @@ export const PrettyPrintJson = ({ data }: IProps) => {
   const [value, setValue] = useState<string>("");
 
   useEffect(() => {
-    try {
-      const json = JSON.stringify(data, null, 2);
-      setValue(json);
-    } catch (error) {
-      setValue(JSON.stringify(data));
-    }
+    const json = JSON.stringify(data, null, 2);
+    setValue(json);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
