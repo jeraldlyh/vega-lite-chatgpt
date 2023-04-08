@@ -128,4 +128,12 @@ export const PIE_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
     role: "assistant",
     content: `{}`,
   },
+  {
+    role: "user",
+    content: `The utterance is: "We can notice 4 types of disruption from the legend"`,
+  },
+  {
+    role: "assistant",
+    content: `{}`,
+  },
 ];

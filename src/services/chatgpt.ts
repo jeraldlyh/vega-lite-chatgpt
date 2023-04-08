@@ -26,7 +26,7 @@ const initialise = async (
     ...PROMPT_MAPPING[graphType].HIGHLIGHT,
     {
       role: "user",
-      content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "${text}"`,
+      content: `This is the dataset used for the ${graphType} graph: ${data}. Infer the type of element from this utterance: "${text}"`,
     },
   ];
   const highlightResponse = openAi.createChatCompletion({
@@ -42,7 +42,7 @@ const initialise = async (
     ...PROMPT_MAPPING[graphType].IN,
     {
       role: "user",
-      content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "${text}"`,
+      content: `This is the dataset used for the ${graphType} graph: ${data}. Infer the type of element from this utterance: "${text}"`,
     },
   ];
   const inResponse = openAi.createChatCompletion({
@@ -58,7 +58,7 @@ const initialise = async (
     ...PROMPT_MAPPING[graphType].WHERE,
     {
       role: "user",
-      content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "${text}"`,
+      content: `This is the dataset used for the ${graphType} graph: ${data}. Infer the predicate(s) from this utterance: "${text}"`,
     },
   ];
   const whereResponse = openAi.createChatCompletion({
