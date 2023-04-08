@@ -27,7 +27,7 @@ const initialise = async (
       content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "${text}"`,
     },
   ];
-  const highlightResponse = await openAi.createChatCompletion({
+  const highlightResponse = openAi.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: highlightPrompts,
   });
@@ -43,7 +43,7 @@ const initialise = async (
       content: `This is the dataset used for the bar graph: ${data}. Infer the type of element from this utterance: "${text}"`,
     },
   ];
-  const inResponse = await openAi.createChatCompletion({
+  const inResponse = openAi.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: inPrompts,
   });
@@ -59,20 +59,26 @@ const initialise = async (
       content: `This is the dataset used for the bar graph: ${data}. Infer the predicate(s) from this utterance: "${text}"`,
     },
   ];
-  const whereResponse = await openAi.createChatCompletion({
+  const whereResponse = openAi.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: wherePrompts,
   });
 
+  const responses = await Promise.all([
+    highlightResponse,
+    inResponse,
+    whereResponse,
+  ]);
+
   try {
     return {
-      highlight: highlightResponse.data.choices[0].message?.content,
-      in: JSON.parse(inResponse.data.choices[0].message!.content),
-      where: JSON.parse(whereResponse.data.choices[0].message!.content),
+      highlight: responses[0].data.choices[0].message?.content,
+      in: JSON.parse(responses[1].data.choices[0].message!.content),
+      where: JSON.parse(responses[2].data.choices[0].message!.content),
     };
   } catch (error) {
     return {
-      highlight: highlightResponse.data.choices[0].message?.content,
+      highlight: JSON.stringify(error),
       in: JSON.stringify(error),
       where: JSON.stringify(error),
     };
