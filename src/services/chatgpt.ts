@@ -26,7 +26,7 @@ const initialise = async (
       content: `Infer the type of element from this utterance: "${text}"`,
     },
   ];
-  const highlightResponse = await openAi.createChatCompletion({
+  const highlightResponse = openAi.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: highlightPrompts,
   });
@@ -42,7 +42,7 @@ const initialise = async (
       content: `Obtain the elements from this utterance: "${text}"`,
     },
   ];
-  const inResponse = await openAi.createChatCompletion({
+  const inResponse = openAi.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: inPrompts,
   });
@@ -58,20 +58,26 @@ const initialise = async (
       content: `Obtain the predicate(s) from this utterance: "${text}"`,
     },
   ];
-  const whereResponse = await openAi.createChatCompletion({
+  const whereResponse = openAi.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: wherePrompts,
   });
 
+  const promises = await Promise.all([
+    highlightResponse,
+    inResponse,
+    whereResponse,
+  ]);
+
   try {
     return {
-      highlight: highlightResponse.data.choices[0].message?.content,
-      in: JSON.parse(inResponse.data.choices[0].message!.content),
-      where: JSON.parse(whereResponse.data.choices[0].message!.content),
+      highlight: promises[0].data.choices[0].message?.content,
+      in: JSON.parse(promises[1].data.choices[0].message!.content),
+      where: JSON.parse(promises[2].data.choices[0].message!.content),
     };
   } catch (error) {
     return {
-      highlight: highlightResponse.data.choices[0].message?.content,
+      highlight: JSON.stringify(error),
       in: JSON.stringify(error),
       where: JSON.stringify(error),
     };
