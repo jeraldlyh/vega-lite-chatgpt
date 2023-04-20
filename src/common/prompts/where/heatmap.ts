@@ -12,9 +12,7 @@ export const HEATMAP_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
             {"age": {"EQUAL": "30 to 39"}},
             {"age": {"EQUAL": "40 to 49"}},
             {"age": {"EQUAL": "50 to 59"}},
-            {"age": {"EQUAL": "60 to 69"}},
-            {"age": {"EQUAL": "70 to 79"}},
-            {"age": {"EQUAL": "80+"}}
+            {"age": {"EQUAL": "60 to 69"}}
         ]
     }`,
   },
@@ -47,15 +45,15 @@ export const HEATMAP_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
-    content: `The utterance is: "People aged 60 and above are affected too"`,
+    content: `The utterance is: "People aged 40 and above are affected too"`,
   },
   {
     role: "assistant",
     content: `{
         "OR": [
-            {"age": {"EQUAL": "60 to 69"}},
-            {"age": {"EQUAL": "70 to 79"}},
-            {"age": {"EQUAL": "80+"}}
+            {"age": {"EQUAL": "40 to 49"}},
+            {"age": {"EQUAL": "50 to 59"}},
+            {"age": {"EQUAL": "60 to 69"}}
         ]
     }`,
   },

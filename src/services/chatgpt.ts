@@ -79,6 +79,7 @@ const initialise = async (
       where: JSON.parse(responses[2].data.choices[0].message!.content),
     };
   } catch (error) {
+    console.log(error);
     return {
       highlight: JSON.stringify(error),
       in: JSON.stringify(error),
