@@ -1,13 +1,55 @@
 import { ChatCompletionRequestMessage } from "openai";
 import { TGraph } from "../types";
-import { BAR_CHART_PROMPTS } from "./bar";
-import { LINE_CHART_PROMPTS } from "./line";
-import { PIE_CHART_PROMPTS } from "./pie";
-import { SCATTER_CHART_PROMPTS } from "./scatter";
+import {
+  BAR_CHART_HIGHLIGHT_PROMPTS,
+  PIE_CHART_HIGHLIGHT_PROMPTS,
+  SCATTER_CHART_HIGHLIGHT_PROMPTS,
+  SYSTEM_HIGHLIGHT_PROMPT,
+} from "./highlight";
+import {
+  BAR_CHART_IN_PROMPTS,
+  PIE_CHART_IN_PROMPTS,
+  SCATTER_CHART_IN_PROMPTS,
+  SYSTEM_IN_PROMPT,
+} from "./in";
+import {
+  BAR_CHART_WHERE_PROMPTS,
+  PIE_CHART_WHERE_PROMPTS,
+  SCATTER_CHART_WHERE_PROMPTS,
+  SYSTEM_WHERE_PROMPT,
+} from "./where";
 
-export const PROMPT_MAPPING: Record<TGraph, ChatCompletionRequestMessage[]> = {
-  bar: BAR_CHART_PROMPTS,
-  pie: PIE_CHART_PROMPTS,
-  line: LINE_CHART_PROMPTS,
-  scatter: SCATTER_CHART_PROMPTS,
+interface IValue {
+  HIGHLIGHT: ChatCompletionRequestMessage[];
+  IN: ChatCompletionRequestMessage[];
+  WHERE: ChatCompletionRequestMessage[];
+}
+
+export const PROMPT_MAPPING: Record<TGraph, IValue> = {
+  bar: {
+    HIGHLIGHT: BAR_CHART_HIGHLIGHT_PROMPTS,
+    IN: BAR_CHART_IN_PROMPTS,
+    WHERE: BAR_CHART_WHERE_PROMPTS,
+  },
+  pie: {
+    HIGHLIGHT: PIE_CHART_HIGHLIGHT_PROMPTS,
+    IN: PIE_CHART_IN_PROMPTS,
+    WHERE: PIE_CHART_WHERE_PROMPTS,
+  },
+  line: {
+    HIGHLIGHT: BAR_CHART_HIGHLIGHT_PROMPTS,
+    IN: BAR_CHART_HIGHLIGHT_PROMPTS,
+    WHERE: BAR_CHART_HIGHLIGHT_PROMPTS,
+  },
+  scatter: {
+    HIGHLIGHT: SCATTER_CHART_HIGHLIGHT_PROMPTS,
+    IN: SCATTER_CHART_IN_PROMPTS,
+    WHERE: SCATTER_CHART_WHERE_PROMPTS,
+  },
+};
+
+export const SYSTEM_PROMPTS = {
+  HIGHLIGHT: SYSTEM_HIGHLIGHT_PROMPT,
+  IN: SYSTEM_IN_PROMPT,
+  WHERE: SYSTEM_WHERE_PROMPT,
 };

@@ -1,0 +1,122 @@
+[
+    {
+        "country": "China",
+        "type": "production",
+        "electricity": 5398,
+        "highlight": false
+    },
+    {
+        "country": "China",
+        "type": "consumption",
+        "electricity": 5322,
+        "highlight": false
+    },
+    {
+        "country": "US",
+        "type": "production",
+        "electricity": 4099,
+        "highlight": false
+    },
+    {
+        "country": "US",
+        "type": "consumption",
+        "electricity": 3866,
+        "highlight": false
+    },
+    {
+        "country": "Russia",
+        "type": "production",
+        "electricity": 1057,
+        "highlight": false
+    },
+    {
+        "country": "Russia",
+        "type": "consumption",
+        "electricity": 1038,
+        "highlight": false
+    },
+    {
+        "country": "Japan",
+        "type": "production",
+        "electricity": 968.2,
+        "highlight": false
+    },
+    {
+        "country": "Japan",
+        "type": "consumption",
+        "electricity": 856.7,
+        "highlight": false
+    },
+    {
+        "country": "India",
+        "type": "production",
+        "electricity": 871,
+        "highlight": false
+    },
+    {
+        "country": "India",
+        "type": "consumption",
+        "electricity": 698.8,
+        "highlight": false
+    },
+    {
+        "country": "Canada",
+        "type": "production",
+        "electricity": 618.9,
+        "highlight": false
+    },
+    {
+        "country": "Canada",
+        "type": "consumption",
+        "electricity": 499.9,
+        "highlight": false
+    },
+    {
+        "country": "France",
+        "type": "production",
+        "electricity": 561.2,
+        "highlight": false
+    },
+    {
+        "country": "France",
+        "type": "consumption",
+        "electricity": 462.9,
+        "highlight": false
+    },
+    {
+        "country": "Brazil",
+        "type": "production",
+        "electricity": 530.7,
+        "highlight": false
+    },
+    {
+        "country": "Brazil",
+        "type": "consumption",
+        "electricity": 455.8,
+        "highlight": false
+    },
+    {
+        "country": "Germany",
+        "type": "production",
+        "electricity": 526.6,
+        "highlight": false
+    },
+    {
+        "country": "Germany",
+        "type": "consumption",
+        "electricity": 582.5,
+        "highlight": false
+    },
+    {
+        "country": "Korea",
+        "type": "production",
+        "electricity": 485.1,
+        "highlight": false
+    },
+    {
+        "country": "Korea",
+        "type": "consumption",
+        "electricity": 449.5,
+        "highlight": false
+    }
+]
