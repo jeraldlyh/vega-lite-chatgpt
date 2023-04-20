@@ -16,14 +16,13 @@ export const LINE_CHART_UTTERANCES = [
 /*                           GROUND TRUTH UTTERANCES                          */
 /* -------------------------------------------------------------------------- */
 export const GROUND_TRUTH_LINE_CHART_UTTERANCES = [
-  "Based on the line chart, from 2000 to 2008, the figures for the UK showed a considerable growth of 17%,",
-  "Based on the line chart, finally, the UK had by far the lowest percentage of women in its Parliament in 2000, at only around 3 percent. ",
-  "Based on the line chart, let's look at Belgium  in 2004.",
-  "Based on the line chart, now, let's look at the trends from 2008 to 2012.",
-  "Based on the line chart, the y-axis displays the percentages of female parliament members.",
-  "Based on the line chart, the figures for Germany were consistently high throughout the years.",
-  "Based on the line chart, from 2000 to 2008, the figures for Belgium, France, Italy and Germany just went up gradually. ",
-  "Based on the line chart, belgium had 23% in 2004.",
-  "Based on the line chart, the UK and Belgium had relatively closer numbers – 20% and 24% respectively – in 2008.",
-  "Based on the line chart, from 2004 to 2008, let's look at the range from 15% to 30%.",
+  //   "From 2000 to 2008, the figures for the UK showed a considerable growth of 17%,",
+  //   "Let's look at Belgium  in 2004.",
+  //   "Now, let's look at the trends from 2008 to 2012.",
+  //   "The y-axis displays the percentages of female parliament members.",
+  //   "The figures for Germany were consistently high throughout the years.",
+  //   "From 2000 to 2008, the figures for Belgium, France, Italy and Germany just went up gradually. ",
+  //   "Belgium had 23% in 2004.",
+  //   "The UK and Belgium had relatively closer numbers – 20% and 24% respectively – in 2008.",
+  "From 2004 to 2008, let's look at the range from 15% to 30%.",
 ];

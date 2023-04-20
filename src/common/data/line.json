@@ -1,0 +1,127 @@
+[
+    {
+        "name": "Germany",
+        "data": [
+            {
+                "date": "1999-12-31T16:00:00.000Z",
+                "percentage": 33,
+                "highlight": true
+            },
+            {
+                "date": "2003-12-31T16:00:00.000Z",
+                "percentage": 34,
+                "highlight": true
+            },
+            {
+                "date": "2007-12-31T16:00:00.000Z",
+                "percentage": 35,
+                "highlight": false
+            },
+            {
+                "date": "2011-12-31T16:00:00.000Z",
+                "percentage": 37,
+                "highlight": false
+            }
+        ]
+    },
+    {
+        "name": "Italy",
+        "data": [
+            {
+                "date": "1999-12-31T16:00:00.000Z",
+                "percentage": 27,
+                "highlight": false
+            },
+            {
+                "date": "2003-12-31T16:00:00.000Z",
+                "percentage": 31,
+                "highlight": false
+            },
+            {
+                "date": "2007-12-31T16:00:00.000Z",
+                "percentage": 33,
+                "highlight": false
+            },
+            {
+                "date": "2011-12-31T16:00:00.000Z",
+                "percentage": 39,
+                "highlight": false
+            }
+        ]
+    },
+    {
+        "name": "France",
+        "data": [
+            {
+                "date": "1999-12-31T16:00:00.000Z",
+                "percentage": 25,
+                "highlight": false
+            },
+            {
+                "date": "2003-12-31T16:00:00.000Z",
+                "percentage": 26,
+                "highlight": false
+            },
+            {
+                "date": "2007-12-31T16:00:00.000Z",
+                "percentage": 29,
+                "highlight": false
+            },
+            {
+                "date": "2011-12-31T16:00:00.000Z",
+                "percentage": 32,
+                "highlight": false
+            }
+        ]
+    },
+    {
+        "name": "UK",
+        "data": [
+            {
+                "date": "1999-12-31T16:00:00.000Z",
+                "percentage": 3,
+                "highlight": false
+            },
+            {
+                "date": "2003-12-31T16:00:00.000Z",
+                "percentage": 9,
+                "highlight": false
+            },
+            {
+                "date": "2007-12-31T16:00:00.000Z",
+                "percentage": 20,
+                "highlight": false
+            },
+            {
+                "date": "2011-12-31T16:00:00.000Z",
+                "percentage": 23,
+                "highlight": false
+            }
+        ]
+    },
+    {
+        "name": "Belgium",
+        "data": [
+            {
+                "date": "1999-12-31T16:00:00.000Z",
+                "percentage": 17,
+                "highlight": false
+            },
+            {
+                "date": "2003-12-31T16:00:00.000Z",
+                "percentage": 23,
+                "highlight": true
+            },
+            {
+                "date": "2007-12-31T16:00:00.000Z",
+                "percentage": 24,
+                "highlight": false
+            },
+            {
+                "date": "2011-12-31T16:00:00.000Z",
+                "percentage": 23,
+                "highlight": false
+            }
+        ]
+    }
+]
