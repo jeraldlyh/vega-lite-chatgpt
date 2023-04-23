@@ -1,6 +1,43 @@
 {
-    "Minor disruption that has affected a few sources and supplies but could be dealt with.": 11,
-    "Moderate disruption that has made securing some supplies extremely difficult or expensive, but not impossible.": 62.5,
-    "Massive disruption that has dramatically affected our sourcing, supplies, and ability to conduct business.": 24.3,
-    "No real disruptions in the supply chain for our businesses.": 2.2
+    "caption": "nearly 87 percent of respondents said they suffered massive or moderate disruptions to their sourcing, supplies and ability to conduct business.",
+    "data": {
+        "values": [
+            {
+                "name": "minor disruption that has affected a few sources and supplies but could be dealt with.",
+                "percentage": 11
+            },
+            {
+                "name": "moderate disruption that has made securing some supplies extremely difficult or expensive, but not impossible.",
+                "percentage": 62.5
+            },
+            {
+                "name": "massive disruption that has dramatically affected our sourcing, supplies, and ability to conduct business.",
+                "percentage": 24.3
+            },
+            {
+                "name": "no real disruptions in the supply chain for our businesses.",
+                "percentage": 2.2
+            }
+        ]
+    },
+    "description": "A simple pie chart with labels.",
+    "encoding": {
+        "color": {
+            "field": "name",
+            "type": "nominal"
+        },
+        "highlight": {
+            "field": "highlight",
+            "type": "nominal"
+        },
+        "theta": {
+            "field": "percentage",
+            "type": "quantitative"
+        }
+    },
+    "mark": {
+        "innerRadius": 50,
+        "type": "arc"
+    },
+    "title": "How much disruption in the supply chain for your business have you experienced in the last six months?"
 }

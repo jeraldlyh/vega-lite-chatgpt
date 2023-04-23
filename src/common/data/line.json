@@ -1,127 +1,133 @@
-[
-    {
-        "name": "Germany",
-        "data": [
+{
+    "title": "The percentage of female members of parliament in European Countries (2000 - 2012)",
+    "data": {
+        "values": [
             {
-                "date": "1999-12-31T16:00:00.000Z",
-                "percentage": 33,
-                "highlight": true
+                "name": "Germany",
+                "date": "2000",
+                "percentage": 33
             },
             {
-                "date": "2003-12-31T16:00:00.000Z",
-                "percentage": 34,
-                "highlight": true
+                "name": "Germany",
+                "date": "2004",
+                "percentage": 34
             },
             {
-                "date": "2007-12-31T16:00:00.000Z",
-                "percentage": 35,
-                "highlight": false
+                "name": "Germany",
+                "date": "2008",
+                "percentage": 35
             },
             {
-                "date": "2011-12-31T16:00:00.000Z",
-                "percentage": 37,
-                "highlight": false
+                "name": "Germany",
+                "date": "2012",
+                "percentage": 37
+            },
+            {
+                "name": "Italy",
+                "date": "2000",
+                "percentage": 27
+            },
+            {
+                "name": "Italy",
+                "date": "2004",
+                "percentage": 31
+            },
+            {
+                "name": "Italy",
+                "date": "2008",
+                "percentage": 33
+            },
+            {
+                "name": "Italy",
+                "date": "2012",
+                "percentage": 39
+            },
+            {
+                "name": "France",
+                "date": "2000",
+                "percentage": 25
+            },
+            {
+                "name": "France",
+                "date": "2004",
+                "percentage": 26
+            },
+            {
+                "name": "France",
+                "date": "2008",
+                "percentage": 29
+            },
+            {
+                "name": "France",
+                "date": "2012",
+                "percentage": 32
+            },
+            {
+                "name": "UK",
+                "date": "2000",
+                "percentage": 3
+            },
+            {
+                "name": "UK",
+                "date": "2004",
+                "percentage": 9
+            },
+            {
+                "name": "UK",
+                "date": "2008",
+                "percentage": 20
+            },
+            {
+                "name": "UK",
+                "date": "2012",
+                "percentage": 23
+            },
+            {
+                "name": "Belgium",
+                "date": "2000",
+                "percentage": 17
+            },
+            {
+                "name": "Belgium",
+                "date": "2004",
+                "percentage": 23
+            },
+            {
+                "name": "Belgium",
+                "date": "2008",
+                "percentage": 24
+            },
+            {
+                "name": "Belgium",
+                "date": "2012",
+                "percentage": 23
             }
         ]
     },
-    {
-        "name": "Italy",
-        "data": [
-            {
-                "date": "1999-12-31T16:00:00.000Z",
-                "percentage": 27,
-                "highlight": false
-            },
-            {
-                "date": "2003-12-31T16:00:00.000Z",
-                "percentage": 31,
-                "highlight": false
-            },
-            {
-                "date": "2007-12-31T16:00:00.000Z",
-                "percentage": 33,
-                "highlight": false
-            },
-            {
-                "date": "2011-12-31T16:00:00.000Z",
-                "percentage": 39,
-                "highlight": false
+    "mark": "rect",
+    "encoding": {
+        "x": {
+            "field": "date",
+            "type": "nominal",
+            "title": "Year"
+        },
+        "y": {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage"
+        },
+        "category": {
+            "field": "name",
+            "type": "nominal",
+            "legend": {
+                "title": null
             }
-        ]
+        }
     },
-    {
-        "name": "France",
-        "data": [
-            {
-                "date": "1999-12-31T16:00:00.000Z",
-                "percentage": 25,
-                "highlight": false
-            },
-            {
-                "date": "2003-12-31T16:00:00.000Z",
-                "percentage": 26,
-                "highlight": false
-            },
-            {
-                "date": "2007-12-31T16:00:00.000Z",
-                "percentage": 29,
-                "highlight": false
-            },
-            {
-                "date": "2011-12-31T16:00:00.000Z",
-                "percentage": 32,
-                "highlight": false
-            }
-        ]
-    },
-    {
-        "name": "UK",
-        "data": [
-            {
-                "date": "1999-12-31T16:00:00.000Z",
-                "percentage": 3,
-                "highlight": false
-            },
-            {
-                "date": "2003-12-31T16:00:00.000Z",
-                "percentage": 9,
-                "highlight": false
-            },
-            {
-                "date": "2007-12-31T16:00:00.000Z",
-                "percentage": 20,
-                "highlight": false
-            },
-            {
-                "date": "2011-12-31T16:00:00.000Z",
-                "percentage": 23,
-                "highlight": false
-            }
-        ]
-    },
-    {
-        "name": "Belgium",
-        "data": [
-            {
-                "date": "1999-12-31T16:00:00.000Z",
-                "percentage": 17,
-                "highlight": false
-            },
-            {
-                "date": "2003-12-31T16:00:00.000Z",
-                "percentage": 23,
-                "highlight": true
-            },
-            {
-                "date": "2007-12-31T16:00:00.000Z",
-                "percentage": 24,
-                "highlight": false
-            },
-            {
-                "date": "2011-12-31T16:00:00.000Z",
-                "percentage": 23,
-                "highlight": false
-            }
-        ]
+    "config": {
+        "axis": {
+            "grid": true,
+            "tickBand": "extent"
+        }
     }
-]
+}
