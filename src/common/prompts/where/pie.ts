@@ -54,6 +54,19 @@ export const PIE_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
+    content: `The utterance is: "Nearly 13.2% of respondents said they experienced no or minor disruption."`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"name": {"EQUAL": "no real"}},
+            {"name": {"EQUAL": "minor"}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
     content: `The utterance is: "A small proportion of the respondents mentioned that they did not experienced any disruptions due to available resources"`,
   },
   {
