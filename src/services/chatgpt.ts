@@ -82,9 +82,7 @@ const initialise = async (
   } catch (error) {
     console.log(error);
     return {
-      highlight: JSON.stringify(error),
-      in: JSON.stringify(error),
-      where: JSON.stringify(error),
+      error: JSON.stringify((error as Error).message),
     };
   }
 };

@@ -47,6 +47,27 @@ export const SCATTER_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
+    content: `The utterance is: "Points that are displayed below the line are irrelevant"`,
+  },
+  {
+    role: "assistant",
+    content: `{}`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "In both 1980 and 2010, jobs with over 20% women included a lot of technology and social roles"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"1980": {"BETWEEN": ["20", "100"]}},
+            {"2010": {"BETWEEN": ["20", "100"]}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
     content: `The utterance is: "In 2010, we can roughly identify the jobs that have 50 to 70 percent women involvement"`,
   },
   {
@@ -54,6 +75,31 @@ export const SCATTER_CHART_WHERE_PROMPTS: ChatCompletionRequestMessage[] = [
     content: `{
         "OR": [
             {"2010": {"BETWEEN": ["50", "70"]}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "Let's take a look at the jobs with women more than 30% in 1980"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"1980": {"BETWEEN": ["30", "100"]}}
+        ]
+    }`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "In both 1980 and 2010, jobs with over 30% women included jobs like Education Manager"`,
+  },
+  {
+    role: "assistant",
+    content: `{
+        "OR": [
+            {"1980": {"BETWEEN": ["30", "100"]}},
+            {"2010": {"BETWEEN": ["30", "100"]}}
         ]
     }`,
   },

@@ -35,6 +35,14 @@ export const SCATTER_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "user",
+    content: `The utterance is: "Let's take a look at the jobs with women more than 30% in 1980"`,
+  },
+  {
+    role: "assistant",
+    content: `data range`,
+  },
+  {
+    role: "user",
     content: `The utterance is: "In 2010, we can roughly identify the jobs that have 50 to 70 percent women involvement"`,
   },
   {
@@ -57,6 +65,22 @@ export const SCATTER_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
     role: "assistant",
     content: `visual element`,
   },
+  {
+    role: "user",
+    content: `The utterance is: "In both 1980 and 2010, jobs with over 30% women included jobs like Education Manager"`,
+  },
+  {
+    role: "assistant",
+    content: `data range`,
+  },
+  {
+    role: "user",
+    content: `The utterance is: "In both 1980 and 2010, jobs with over 20% women included a lot of technology and social roles"`,
+  },
+  {
+    role: "assistant",
+    content: `data range`,
+  },
   /* -------------------------------------------------------------------------- */
   /*                              COMMON HIGHLIGHTS                             */
   /* -------------------------------------------------------------------------- */
@@ -74,6 +98,6 @@ export const SCATTER_CHART_HIGHLIGHT_PROMPTS: ChatCompletionRequestMessage[] = [
   },
   {
     role: "assistant",
-    content: `legend`,
+    content: `y-axis`,
   },
 ];
